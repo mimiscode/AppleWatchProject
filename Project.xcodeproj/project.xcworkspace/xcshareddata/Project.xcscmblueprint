@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BDAFE3BA10CD4A8031B304125DBD5E00EECD6233",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E7A2D5BBE431489E98E42F8FE1C763427BC100F5" : 0,
+    "BDAFE3BA10CD4A8031B304125DBD5E00EECD6233" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "96EA76DB-66E6-429A-9325-0AD5D0126458",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E7A2D5BBE431489E98E42F8FE1C763427BC100F5" : "..\/tracyDev\/Hackaton\/HackatonProjectTest\/appleWatchProject",
+    "BDAFE3BA10CD4A8031B304125DBD5E00EECD6233" : "AppleWatchProject\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Project",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Project.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mimiscode\/AppleWatchProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BDAFE3BA10CD4A8031B304125DBD5E00EECD6233"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SebastienLouis\/appleWatchProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E7A2D5BBE431489E98E42F8FE1C763427BC100F5"
+    }
+  ]
+}
