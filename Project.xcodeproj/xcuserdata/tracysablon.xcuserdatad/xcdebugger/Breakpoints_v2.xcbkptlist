@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project WatchKit Extension/ResponseNoInterfaceController.m"
-            timestampString = "474919752.629849"
+            timestampString = "475019971.483147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-OnTouchConfirmer"
             landmarkType = "5">
          </BreakpointContent>

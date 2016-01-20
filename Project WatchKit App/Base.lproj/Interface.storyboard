@@ -92,6 +92,7 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="confirmBtn" destination="c1E-Xy-HFB" id="olE-qF-PmF"/>
                         <outlet property="interfacePicker" destination="Zh9-Be-5pD" id="grj-tM-H2t"/>
                     </connections>
                 </controller>

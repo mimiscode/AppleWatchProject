@@ -11,6 +11,8 @@
 
 @interface ResponseNoInterfaceController : WKInterfaceController
 
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *confirmBtn;
+
 @property (strong, nonatomic) IBOutlet WKInterfacePicker *interfacePicker;
 
 @property (strong, nonatomic) NSArray <WKPickerItem *> *pickerItems;

@@ -1,17 +1,17 @@
  [
   {
   "idd": "5634598374",
-  "state": 0,
+  "state": 1,
   "numberMedications": 1,
   "medication": 0,
-  "date": "2015-10-08-08:30:00"
+  "date": "2016-01-20-22:30:00"
   },
   {
   "idd": "2094857693",
-  "state": 0,
+  "state": 1,
   "numberMedications": 2,
   "medication": 4,
-  "date": "2015-10-10-06:26:00"
+  "date": "2016-01-22-22:35:00"
   },
   {
   "idd": "1998750039",

@@ -14,11 +14,14 @@
 @end
 
 @implementation ResponseNoInterfaceController
+@synthesize confirmBtn;
 
 @synthesize times;
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+    
+    [confirmBtn setHidden:YES];
     
     //Active Session connection with iPhone
     if([WCSession class] && [WCSession isSupported]){
@@ -71,6 +74,8 @@
     [_interfacePicker setItems:self.pickerItems];
 }
 - (IBAction)ListPicker:(NSInteger)value {
+    
+    [confirmBtn setHidden:NO];
     
     WKPickerItem *selectedItem = self.pickerItems[value];
     
