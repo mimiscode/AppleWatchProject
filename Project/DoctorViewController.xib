@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DoctorViewController">
+            <connections>
+                <outlet property="doctorAddressLabel" destination="Bqh-BY-EhL" id="gRK-VL-N6n"/>
+                <outlet property="doctorMailLabel" destination="yUV-3C-hex" id="3Hg-NZ-TEa"/>
+                <outlet property="doctorNameLabel" destination="92l-ML-LLK" id="ooW-Nv-JKU"/>
+                <outlet property="doctorPhoneLabel" destination="J8d-d7-u1l" id="eny-wx-gBg"/>
+                <outlet property="doctorsListView" destination="kJJ-RN-Vs7" id="ddL-fa-CJT"/>
+                <outlet property="searchBar" destination="0WC-jw-0my" id="i7E-7k-L00"/>
+                <outlet property="searchDisplayController" destination="RcW-db-maJ" id="6ZO-x0-xrv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DoctorMenu.png" id="BOs-3Q-Q8U">
+                    <rect key="frame" x="0.0" y="51" width="320" height="130"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bqh-BY-EhL">
+                    <rect key="frame" x="8" y="225" width="304" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <attributedString key="attributedText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J8d-d7-u1l">
+                    <rect key="frame" x="10" y="255" width="298" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <attributedString key="attributedText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kJJ-RN-Vs7">
+                    <rect key="frame" x="0.0" y="323" width="320" height="222"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <searchBar contentMode="redraw" placeholder="Rechercher un medecin" id="0WC-jw-0my">
+                    <rect key="frame" x="0.0" y="319" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <textInputTraits key="textInputTraits"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
+                </searchBar>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aucun résultat..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Es-Mn-uZG">
+                    <rect key="frame" x="90" y="457" width="141" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="92l-ML-LLK">
+                    <rect key="frame" x="8" y="202" width="304" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <attributedString key="attributedText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yUV-3C-hex">
+                    <rect key="frame" x="10" y="282" width="298" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <attributedString key="attributedText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="40i-ju-iOF">
+                    <rect key="frame" x="102" y="538" width="116" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Mentions légales"/>
+                    <connections>
+                        <action selector="onInformationsTouch:" destination="-1" eventType="touchUpInside" id="N8V-gA-R4U"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="116" y="313"/>
+        </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tss-Oa-eeI">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <animations/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="339" y="405.5"/>
+        </label>
+        <searchDisplayController id="RcW-db-maJ">
+            <connections>
+                <outlet property="delegate" destination="-1" id="8fz-JG-WaV"/>
+                <outlet property="searchContentsController" destination="-1" id="P5Q-a4-kne"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="uEC-rD-pce"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="zY3-mt-sK9"/>
+            </connections>
+        </searchDisplayController>
+    </objects>
+    <resources>
+        <image name="DoctorMenu.png" width="375" height="178"/>
+    </resources>
+</document>

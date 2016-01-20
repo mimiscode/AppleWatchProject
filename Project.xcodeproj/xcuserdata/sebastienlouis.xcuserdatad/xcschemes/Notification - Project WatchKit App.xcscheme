@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0710"
+   version = "2.0">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
+               BuildableName = "Project WatchKit App.app"
+               BlueprintName = "Project WatchKit App"
+               ReferencedContainer = "container:Project.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4925EC781BC55B6E003D73D7"
+               BuildableName = "Project.app"
+               BlueprintName = "Project"
+               ReferencedContainer = "container:Project.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4925EC9E1BC55B6E003D73D7"
+               BuildableName = "Project WatchKit Extension.appex"
+               BlueprintName = "Project WatchKit Extension"
+               ReferencedContainer = "container:Project.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
+            BuildableName = "Project WatchKit App.app"
+            BlueprintName = "Project WatchKit App"
+            ReferencedContainer = "container:Project.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES"
+      launchAutomaticallySubstyle = "8"
+      notificationPayloadFile = "Project WatchKit Extension/PushNotificationPayload.apns">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.carousel"
+         RemotePath = "/Project WatchKit App">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
+            BuildableName = "Project WatchKit App.app"
+            BlueprintName = "Project WatchKit App"
+            ReferencedContainer = "container:Project.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
+            BuildableName = "Project WatchKit App.app"
+            BlueprintName = "Project WatchKit App"
+            ReferencedContainer = "container:Project.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES"
+      launchAutomaticallySubstyle = "8"
+      notificationPayloadFile = "Project WatchKit Extension/PushNotificationPayload.apns">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.carousel"
+         RemotePath = "/Project WatchKit App">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
+            BuildableName = "Project WatchKit App.app"
+            BlueprintName = "Project WatchKit App"
+            ReferencedContainer = "container:Project.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
+            BuildableName = "Project WatchKit App.app"
+            BlueprintName = "Project WatchKit App"
+            ReferencedContainer = "container:Project.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
