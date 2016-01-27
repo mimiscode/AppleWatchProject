@@ -81,27 +81,16 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "Project WatchKit Extension/PushNotificationPayload.apns">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.carousel"
-         RemotePath = "/Project WatchKit App">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
-            BuildableName = "Project WatchKit App.app"
-            BlueprintName = "Project WatchKit App"
+            BlueprintIdentifier = "4925EC781BC55B6E003D73D7"
+            BuildableName = "Project.app"
+            BlueprintName = "Project"
             ReferencedContainer = "container:Project.xcodeproj">
          </BuildableReference>
-      </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4925EC8F1BC55B6E003D73D7"
-            BuildableName = "Project WatchKit App.app"
-            BlueprintName = "Project WatchKit App"
-            ReferencedContainer = "container:Project.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

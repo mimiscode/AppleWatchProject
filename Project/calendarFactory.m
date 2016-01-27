@@ -43,6 +43,25 @@
     return result;
 }
 
++(NSArray*) getCalendarTest{
+    
+    NSData *JSONData = [NSData new];
+    
+    JSONData = [calendarMockWebService getCalendar];
+    
+    if(!JSONData){
+        return nil;
+    }
+    
+    NSArray *testDict = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
+ 
+    
+    return testDict;
+    
+    
+}
+
+
 
 
 

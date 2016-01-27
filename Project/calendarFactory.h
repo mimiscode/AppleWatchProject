@@ -13,6 +13,8 @@
 
 +(NSArray*) getCalendar;
 
++(NSArray*) getCalendarTest;
+
 +(NSArray*) formatEventsWithCalendar:(NSArray*) calendar;
 
 +(NSArray*) getSixNextDaysEventsWithCalendar:(NSArray*)calendar;

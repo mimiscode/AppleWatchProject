@@ -35,9 +35,7 @@
     [self popToRootController];
 }
 - (IBAction)OnTouchConfirmer {
-    
-    //NSString *msg = [times objectAtIndex:0];
-    
+ 
     if ([WCSession defaultSession].reachable) {
         [[WCSession defaultSession] sendMessage:@{@"times" : [times objectAtIndex:0]} replyHandler:nil errorHandler:nil];
     }
@@ -86,6 +84,7 @@
     [self.selectedValue setText:selectedItem.title];
     
 }
+
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible

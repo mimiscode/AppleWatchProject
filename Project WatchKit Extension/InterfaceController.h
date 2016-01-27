@@ -11,5 +11,7 @@
 
 @interface InterfaceController : WKInterfaceController
 
+@property (strong, nonatomic) id medicationData;
+
 
 @end

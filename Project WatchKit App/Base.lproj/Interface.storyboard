@@ -5,6 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
+        <!--Test-->
+        <scene sceneID="YwT-P2-pMZ">
+            <objects>
+                <controller identifier="Test" title="Test" hidesWhenLoading="NO" id="Nb0-lQ-iVl" customClass="TestInterfaceController"/>
+            </objects>
+            <point key="canvasLocation" x="339" y="157"/>
+        </scene>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
@@ -49,7 +56,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="395" y="158.5"/>
+            <point key="canvasLocation" x="510" y="158.5"/>
         </scene>
         <!--Snooze-->
         <scene sceneID="580-xL-4cD">
@@ -92,12 +99,12 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="confirmBtn" destination="c1E-Xy-HFB" id="olE-qF-PmF"/>
+                        <outlet property="confirmBtn" destination="c1E-Xy-HFB" id="8kk-9t-41o"/>
                         <outlet property="interfacePicker" destination="Zh9-Be-5pD" id="grj-tM-H2t"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="547" y="149"/>
+            <point key="canvasLocation" x="681" y="160"/>
         </scene>
         <!--Notice-->
         <scene sceneID="e0D-cG-qPO">
@@ -119,7 +126,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="433" y="393"/>
+            <point key="canvasLocation" x="510" y="394"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

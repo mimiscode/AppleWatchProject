@@ -9,8 +9,10 @@
 #import "MenuViewController.h"
 #import "DoctorViewController.h"
 #import "PillboxViewController.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
-@interface MenuViewController ()
+
+@interface MenuViewController ()<WCSessionDelegate>
 
 @end
 
@@ -20,6 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //Active Session connection with iWatch
+    if([WCSession class] && [WCSession isSupported]){
+        WCSession* session = [WCSession defaultSession];
+        session.delegate = self;
+        [session activateSession];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

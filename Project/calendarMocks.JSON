@@ -1,43 +1,35 @@
- [
-  {
-  "idd": "5634598374",
+ [{
+  "idd": "2094857693",
   "state": 1,
-  "numberMedications": 1,
-  "medication": 0,
-  "date": "2016-01-20-22:30:00"
+  "numberMedications": 6,
+  "medication": 4,
+  "date": "2016-01-27-22:35:00"
   },
   {
   "idd": "2094857693",
   "state": 1,
   "numberMedications": 2,
   "medication": 4,
-  "date": "2016-01-22-22:35:00"
+  "date": "2016-01-26-22:35:00"
   },
   {
-  "idd": "1998750039",
-  "state": 0,
-  "numberMedications": 1,
-  "medication": 8,
-  "date": "2015-10-11-10:15:00"
-  },
-  {
-  "idd": "2948475629",
-  "state": 0,
-  "numberMedications": 1,
-  "medication": 3,
-  "date": "2015-10-08-06:00:00"
-  },
-  {
-  "idd": "1209846537",
-  "state": 0,
+  "idd": "2094857693",
+  "state": 1,
   "numberMedications": 2,
-  "medication": 6,
-  "date": "2015-10-07-12:15:00"
+  "medication": 4,
+  "date": "2016-01-31-22:35:00"
   },
   {
-  "idd": "2009384753",
-  "state": 0,
-  "numberMedications": 1,
-  "medication": 2,
-  "date": "2015-10-11-18:30:00"
+  "idd": "2094857693",
+  "state": 1,
+  "numberMedications": 2,
+  "medication": 1,
+  "date": "2016-02-01-22:35:00"
+  },
+  {
+  "idd": "2094857693",
+  "state": 1,
+  "numberMedications": 2,
+  "medication": 4,
+  "date": "2016-02-02-22:35:00"
   }]

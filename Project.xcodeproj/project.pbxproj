@@ -75,6 +75,7 @@
 		632625431C4EBF4E00E14B22 /* panneauorange.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625361C4EBF4E00E14B22 /* panneauorange.png */; settings = {ASSET_TAGS = (); }; };
 		632625441C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; settings = {ASSET_TAGS = (); }; };
 		632625451C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; settings = {ASSET_TAGS = (); }; };
+		63281D9F1C59075A00163A17 /* TestInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63281D9E1C59075A00163A17 /* TestInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
 		633A3B9A1C4EA8E30048F4C9 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 633A3B991C4EA8E30048F4C9 /* PushNotificationPayload.apns */; settings = {ASSET_TAGS = (); }; };
 		633A3B9F1C4EBD140048F4C9 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9C1C4EBD140048F4C9 /* InterfaceController.m */; settings = {ASSET_TAGS = (); }; };
 		633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9E1C4EBD140048F4C9 /* NotificationController.m */; settings = {ASSET_TAGS = (); }; };
@@ -220,6 +221,8 @@
 		632625351C4EBF4E00E14B22 /* panneaujaune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panneaujaune.png; sourceTree = "<group>"; };
 		632625361C4EBF4E00E14B22 /* panneauorange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panneauorange.png; sourceTree = "<group>"; };
 		632625371C4EBF4E00E14B22 /* pill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pill.png; sourceTree = "<group>"; };
+		63281D9D1C59075A00163A17 /* TestInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInterfaceController.h; sourceTree = "<group>"; };
+		63281D9E1C59075A00163A17 /* TestInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInterfaceController.m; sourceTree = "<group>"; };
 		633A3B991C4EA8E30048F4C9 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		633A3B9B1C4EBD140048F4C9 /* InterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
 		633A3B9C1C4EBD140048F4C9 /* InterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
@@ -366,11 +369,13 @@
 				632625351C4EBF4E00E14B22 /* panneaujaune.png */,
 				632625361C4EBF4E00E14B22 /* panneauorange.png */,
 				632625371C4EBF4E00E14B22 /* pill.png */,
+				63281D9D1C59075A00163A17 /* TestInterfaceController.h */,
+				63281D9E1C59075A00163A17 /* TestInterfaceController.m */,
 				633A3BA41C4EBD390048F4C9 /* AlertNotificationController.h */,
 				633A3BA51C4EBD390048F4C9 /* AlertNotificationController.m */,
-				633A3B9B1C4EBD140048F4C9 /* InterfaceController.h */,
 				633A3BA11C4EBD2A0048F4C9 /* ExtensionDelegate.h */,
 				633A3BA21C4EBD2A0048F4C9 /* ExtensionDelegate.m */,
+				633A3B9B1C4EBD140048F4C9 /* InterfaceController.h */,
 				633A3B9C1C4EBD140048F4C9 /* InterfaceController.m */,
 				633A3B9D1C4EBD140048F4C9 /* NotificationController.h */,
 				633A3B9E1C4EBD140048F4C9 /* NotificationController.m */,
@@ -668,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1967D15C1BC79365004E2AD6 /* InfoInterfaceController.m in Sources */,
+				63281D9F1C59075A00163A17 /* TestInterfaceController.m in Sources */,
 				633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */,
 				633A3BA61C4EBD390048F4C9 /* AlertNotificationController.m in Sources */,
 				633A3B9F1C4EBD140048F4C9 /* InterfaceController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "InterfaceController.h"
+#import "TestInterfaceController.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 
 
@@ -18,6 +19,8 @@
 
 @implementation InterfaceController
 
+@synthesize medicationData;
+
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
@@ -27,6 +30,7 @@
         session.delegate = self;
         [session activateSession];
     }
+    
 }
 
 - (void)willActivate {
@@ -40,7 +44,8 @@
 }
 
 - (IBAction)OnTouchOk {
-    [self dismissController];
+    NSLog(@"OnTouchOk ! ");
+    [self pushControllerWithName:@"Test" context:medicationData];
 
 }
 
@@ -51,25 +56,30 @@
     [self pushControllerWithName:@"Info" context:nil];
 }
 
+/*
+- (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message {
+    NSString* msg = [message objectForKey:@"message"];
+    NSLog(@"%@",msg);
+    
+}
 
-//- (void)session:(WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message {
-//    
-//    NSString* msg = [message objectForKey:@"message"];
-//    
-//    NSArray* actions = @[[WKAlertAction actionWithTitle:@"CLOSE" style:WKAlertActionStyleCancel handler:^{NSLog(@"CANCEL");
-//    }],[WKAlertAction actionWithTitle:@"REPONDRE" style:WKAlertActionStyleCancel handler:^{
-//        
-//        if ([WCSession defaultSession].reachable) {
-//            [[WCSession defaultSession] sendMessage:@{@"message" : @"Hello from iWatch"} replyHandler:nil errorHandler:nil];
-//        }
-//        
-//    }]];
-//    
-//    //    [self presentAlertControllerWithTitle:@"Message" message:msg preferredStyle:WKAlertControllerStyleActionSheet actions:@[[WKAlertAction actionWithTitle:@"CLOSE" style:WKAlertActionStyleCancel handler:^{NSLog(@"CANCEL");}]]];
-//    
-//    
-//    [self presentAlertControllerWithTitle:@"Message" message:msg preferredStyle:WKAlertControllerStyleActionSheet actions:actions];
-//}
+- (void)session:(WCSession *)session didReceiveFile:(WCSessionFile *)file {
+    
+    NSLog(@"File has been received:%@", file);
+    
+}
+ */
+
+- (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {
+    
+    NSLog(@"didReceiveApplicationContext");
+    
+    id appC = applicationContext;
+    //NSLog(@"%@",appC);
+    
+    medicationData = appC;
+}
+
 
 @end
 
