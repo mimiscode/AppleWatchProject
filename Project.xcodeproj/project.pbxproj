@@ -81,6 +81,8 @@
 		633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9E1C4EBD140048F4C9 /* NotificationController.m */; settings = {ASSET_TAGS = (); }; };
 		633A3BA31C4EBD2A0048F4C9 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3BA21C4EBD2A0048F4C9 /* ExtensionDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		633A3BA61C4EBD390048F4C9 /* AlertNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3BA51C4EBD390048F4C9 /* AlertNotificationController.m */; settings = {ASSET_TAGS = (); }; };
+		63F13A401C59456200116563 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4925EC951BC55B6E003D73D7 /* Interface.storyboard */; settings = {ASSET_TAGS = (); }; };
+		63F13A431C5BC6C800116563 /* CustomTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F13A421C5BC6C800116563 /* CustomTableRowController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +234,8 @@
 		633A3BA21C4EBD2A0048F4C9 /* ExtensionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		633A3BA41C4EBD390048F4C9 /* AlertNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertNotificationController.h; sourceTree = "<group>"; };
 		633A3BA51C4EBD390048F4C9 /* AlertNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertNotificationController.m; sourceTree = "<group>"; };
+		63F13A411C5BC6C800116563 /* CustomTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableRowController.h; sourceTree = "<group>"; };
+		63F13A421C5BC6C800116563 /* CustomTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableRowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +393,8 @@
 				4925ECAF1BC55B6E003D73D7 /* Assets.xcassets */,
 				4925ECB11BC55B6E003D73D7 /* Info.plist */,
 				4925ECA41BC55B6E003D73D7 /* Supporting Files */,
+				63F13A411C5BC6C800116563 /* CustomTableRowController.h */,
+				63F13A421C5BC6C800116563 /* CustomTableRowController.m */,
 			);
 			path = "Project WatchKit Extension";
 			sourceTree = "<group>";
@@ -627,6 +633,7 @@
 				632625411C4EBF4E00E14B22 /* panneaujaune.png in Resources */,
 				632625391C4EBF4E00E14B22 /* check.png in Resources */,
 				4925ECB01BC55B6E003D73D7 /* Assets.xcassets in Resources */,
+				63F13A401C59456200116563 /* Interface.storyboard in Resources */,
 				633A3B9A1C4EA8E30048F4C9 /* PushNotificationPayload.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +687,7 @@
 				1967D1611BC79365004E2AD6 /* ResponseNoInterfaceController.m in Sources */,
 				633A3BA31C4EBD2A0048F4C9 /* ExtensionDelegate.m in Sources */,
 				1967D1601BC79365004E2AD6 /* ResponseNo.m in Sources */,
+				63F13A431C5BC6C800116563 /* CustomTableRowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

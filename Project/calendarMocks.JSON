@@ -1,35 +1,36 @@
- [{
-  "idd": "2094857693",
-  "state": 1,
-  "numberMedications": 6,
-  "medication": 4,
-  "date": "2016-01-27-22:35:00"
-  },
+ [
   {
-  "idd": "2094857693",
-  "state": 1,
-  "numberMedications": 2,
-  "medication": 4,
-  "date": "2016-01-26-22:35:00"
-  },
-  {
-  "idd": "2094857693",
+  "idd": "1",
   "state": 1,
   "numberMedications": 2,
   "medication": 4,
   "date": "2016-01-31-22:35:00"
   },
   {
-  "idd": "2094857693",
+  "idd": "2",
   "state": 1,
   "numberMedications": 2,
   "medication": 1,
   "date": "2016-02-01-22:35:00"
   },
   {
-  "idd": "2094857693",
+  "idd": "3",
   "state": 1,
   "numberMedications": 2,
   "medication": 4,
   "date": "2016-02-02-22:35:00"
+  },
+  {
+  "idd": "4",
+  "state": 1,
+  "numberMedications": 2,
+  "medication": 4,
+  "date": "2016-02-03-22:35:00"
+  },
+  {
+  "idd": "5",
+  "state": 1,
+  "numberMedications": 2,
+  "medication": 4,
+  "date": "2016-02-04-22:35:00"
   }]

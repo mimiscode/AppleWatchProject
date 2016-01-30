@@ -7,7 +7,7 @@
 //
 
 #import "TestInterfaceController.h"
-#import "InterfaceController.h"
+#import "CustomTableRowController.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 
 @interface TestInterfaceController ()<WCSessionDelegate>
@@ -17,6 +17,7 @@
 @implementation TestInterfaceController
 
 @synthesize pushedData;
+@synthesize medicationTableView;
 
 
 - (void)awakeWithContext:(id)context {
@@ -25,7 +26,28 @@
     NSLog(@"Test interface !");
     NSLog(@"display context : %@",context);
     
+    pushedData = context;
+    
+    [medicationTableView setNumberOfRows:[pushedData count] withRowType:@"CustomTableRowController"];
+    
+    for (NSInteger i = 0; i < [pushedData count]; i++) {
+
+        id pushedDataTitle = [[pushedData objectAtIndex:i] objectForKey:@"idd"];
+        
+        CustomTableRowController *customRow = [medicationTableView rowControllerAtIndex:i];
+        
+        [customRow.titleLbl setText:[NSString stringWithFormat:@"pilule %@",pushedDataTitle]];
+        
+    }
+
+    
     // Configure interface objects here.
+}
+
+- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
+    
+    [self pushControllerWithName:@"Test" context:nil];
+
 }
 
 - (void)willActivate {

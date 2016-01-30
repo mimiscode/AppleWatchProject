@@ -13,5 +13,6 @@
 
 @property(strong,nonatomic) id pushedData;
 
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *medicationTableView;
 
 @end

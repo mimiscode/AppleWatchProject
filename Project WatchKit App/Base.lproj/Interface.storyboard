@@ -8,7 +8,27 @@
         <!--Test-->
         <scene sceneID="YwT-P2-pMZ">
             <objects>
-                <controller identifier="Test" title="Test" hidesWhenLoading="NO" id="Nb0-lQ-iVl" customClass="TestInterfaceController"/>
+                <controller identifier="Test" title="Test" hidesWhenLoading="NO" id="Nb0-lQ-iVl" customClass="TestInterfaceController">
+                    <items>
+                        <table alignment="left" id="MMt-8V-wRu">
+                            <items>
+                                <tableRow identifier="CustomTableRowController" id="H1Y-YP-uF7" customClass="CustomTableRowController">
+                                    <group key="rootItem" width="1" alignment="left" id="hjN-Wn-VQ9">
+                                        <items>
+                                            <label alignment="left" text="Label" id="Bh5-oD-YHR"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLbl" destination="Bh5-oD-YHR" id="T47-rg-Pnt"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="medicationTableView" destination="MMt-8V-wRu" id="kYD-Ft-7ND"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="339" y="157"/>
         </scene>

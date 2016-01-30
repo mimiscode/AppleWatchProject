@@ -119,7 +119,7 @@
     DayDetailViewController* dayDetail1 = [DayDetailViewController new];
     dayDetail1.dayEvents = self.calendarArray[0];
     
-    NSArray * foo = [[NSArray alloc] initWithObjects:@"foo",@"bar",@"baz",nil];
+   /* NSArray * foo = [[NSArray alloc] initWithObjects:@"foo",@"bar",@"baz",nil];
     
     
     NSDictionary *inventory = @{
@@ -132,6 +132,8 @@
     id testArray = [calendarFactory getCalendarTest];
     
     [[WCSession defaultSession] updateApplicationContext:testArray error:nil];
+    
+    */
     
     /*if([WCSession defaultSession].reachable) {
      [[WCSession defaultSession] sendMessage:@{@"message" : @"Hello from iPhone"} replyHandler:nil errorHandler:nil];
@@ -153,7 +155,14 @@
 - (IBAction)onTouchThirdDay:(id)sender {
     DayDetailViewController* dayDetail3 = [DayDetailViewController new];
     dayDetail3.dayEvents = self.calendarArray[2];
-    [self.navigationController pushViewController:dayDetail3 animated:NO];
+    
+
+    id testArray = [calendarFactory getCalendarTest];
+    
+    [[WCSession defaultSession] updateApplicationContext:testArray error:nil];
+
+    
+    //[self.navigationController pushViewController:dayDetail3 animated:NO];
 }
 
 - (IBAction)onTouchFourthDay:(id)sender {

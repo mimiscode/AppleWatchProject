@@ -7,7 +7,6 @@
 //
 
 #import "InterfaceController.h"
-#import "TestInterfaceController.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 
 
