@@ -11,7 +11,9 @@
 
 @interface calendarFactory : NSObject
 
-+(NSArray*) getCalendar;
++(NSData*) getCalendar;
+
++(NSArray*) getPlannedWeekWithCalendar:(NSData*)calendar;
 
 +(NSArray*) getCalendarTest;
 

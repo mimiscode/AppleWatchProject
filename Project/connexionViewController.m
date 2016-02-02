@@ -10,8 +10,9 @@
 #import "userFactory.h"
 #import "SubscribeViewController.h"
 #import "MenuViewController.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
-@interface connexionViewController ()
+@interface connexionViewController ()<WCSessionDelegate>
 
 @end
 
@@ -20,7 +21,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //Active Session connection with iWatch
+    if([WCSession class] && [WCSession isSupported]){
+        WCSession* session = [WCSession defaultSession];
+        session.delegate = self;
+        [session activateSession];
+
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"calendarMocks.JSON" ofType:nil];
+        NSURL *url = [NSURL fileURLWithPath:filePath];
+        NSDictionary *metadataDict = nil;
+        WCSessionFileTransfer *fileTransfer = [[WCSession defaultSession] transferFile:url metadata:metadataDict];
+    }
+
+    
     [self.view endEditing:YES];
+}
+
+- (void)session:(WCSession *)session didFinishFileTransfer:(WCSessionFileTransfer *)fileTransfer error:(NSError *)error {
+    
+    if (!error) {
+        NSLog(@"successful transfer");
+    }
+    else {
+        NSLog(@"failed transfer");
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

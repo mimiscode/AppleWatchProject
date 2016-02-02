@@ -27,9 +27,6 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
     self.dayEventsTableView.delegate = self;
     self.dayEventsTableView.dataSource = self;
     
-    
-    NSLog(@"events : %@", self.dayEvents);
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,11 +54,6 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *dateStr = [dateFormatter  stringFromDate:event.date];
     
    // NSDate *eventDate = [dateFormatter dateFromString:dateStr];// date with yyyy-MM-dd format
-    NSLog(@"deyEventDate : %@", dateStr);
-    
-    
-    
-    
     
     cell= [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kHomeViewControllerCellIdentifier];
     

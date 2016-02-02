@@ -1,0 +1,62 @@
+ [
+  {
+  "idd": 0,
+  "label": "Doliprane",
+  "description": "Duis elit laborum est duis consectetur laboris nulla cillum dolor. Sit proident deserunt incididunt occaecat pariatur aliqua proident dolor elit aliquip incididunt id. Veniam laborum pariatur veniam duis duis aute velit do consectetur aute.\r\n",
+  "carIndication": 1
+  },
+  {
+  "idd": 1,
+  "label": "Dolirhume",
+  "description": "Duis amet proident veniam minim commodo ex voluptate amet labore. Eiusmod irure nostrud aute in reprehenderit esse voluptate mollit sint qui. Officia esse esse aute et sunt ipsum proident. Aute reprehenderit incididunt labore amet et. Do veniam aliqua irure est occaecat officia magna cillum qui est exercitation culpa.\r\n",
+  "carIndication": 1
+  },
+  {
+  "idd": 2,
+  "label": "Smecta",
+  "description": "Laborum incididunt reprehenderit labore duis deserunt nulla eiusmod tempor ex amet id quis aute adipisicing. Adipisicing eiusmod veniam ipsum minim elit dolor dolore dolore anim ea. Proident occaecat laboris consectetur culpa qui voluptate elit sit enim commodo aliqua. Nostrud anim eu sint nulla minim aute reprehenderit incididunt ut Lorem fugiat mollit ut exercitation.\r\n",
+  "carIndication": 0
+  },
+  {
+  "idd": 3,
+  "label": "Spasfond",
+  "description": "Sint nisi minim qui occaecat voluptate non consectetur ea ea nisi et dolore quis enim. Nulla non esse mollit sit incididunt id duis id mollit aute nostrud non. Voluptate veniam ex tempor eu ad. Nisi ut ullamco reprehenderit ex duis aliqua elit amet. Culpa ex consequat irure aliqua ipsum cillum est aute ipsum.\r\n",
+  "carIndication": 0
+  },
+  {
+  "idd": 4,
+  "label": "Ibuprofène",
+  "description": "Proident tempor voluptate pariatur consequat dolore. Excepteur laborum ex velit qui consectetur magna et deserunt ipsum et tempor irure duis aliqua. Consequat mollit aute commodo adipisicing.\r\n",
+  "carIndication": 0
+  },
+  {
+  "idd": 5,
+  "label": "Dafalgan",
+  "description": "Consequat do elit adipisicing proident nisi Lorem sunt commodo ea laboris anim. Id sunt quis quis ipsum sit. Elit veniam non do culpa. Do tempor quis nulla sunt minim dolor ut mollit adipisicing et.\r\n",
+  "carIndication": 0
+  },
+  {
+  "idd": 6,
+  "label": "Curacné",
+  "description": "Officia excepteur veniam irure commodo est veniam amet nostrud amet. Esse aliquip dolor amet occaecat et et veniam non exercitation consectetur sint occaecat labore excepteur. Voluptate esse aliqua irure esse aliqua aliquip tempor nulla. Minim laboris qui enim ex Lorem. Sit proident incididunt duis sint enim non esse.\r\n",
+  "carIndication": 1
+  },
+  {
+  "idd": 7,
+  "label": "Voltarène",
+  "description": "Adipisicing proident laborum commodo consectetur pariatur. Esse culpa exercitation irure qui reprehenderit eiusmod minim pariatur eu dolor sit nostrud consequat ad. Aute proident veniam dolore Lorem ipsum occaecat et sit eu tempor amet magna sit esse. Duis ex ad officia fugiat ad amet aute mollit cupidatat magna. Eiusmod veniam anim ipsum dolore deserunt anim nulla fugiat nostrud anim velit laborum. Officia ipsum do sunt irure laborum. Sunt cupidatat dolore sit deserunt ut labore.\r\n",
+  "carIndication": 2
+  },
+  {
+  "idd": 8,
+  "label": "Cocculine",
+  "description": "Pariatur tempor ipsum duis exercitation qui quis dolore esse. Id aliqua exercitation in aliqua proident ipsum culpa labore et aliquip aute voluptate. Laboris nulla duis mollit velit aliquip dolore Lorem labore tempor ut ipsum anim occaecat laborum.\r\n",
+  "carIndication": 1
+  },
+  {
+  "idd": 9,
+  "label": "Nurofen",
+  "description": "Voluptate et voluptate incididunt eiusmod amet duis reprehenderit nisi nostrud est sit. Nulla occaecat fugiat qui adipisicing id nostrud consequat irure pariatur reprehenderit. Pariatur adipisicing est velit fugiat. Consectetur occaecat excepteur incididunt eu veniam adipisicing sunt. Adipisicing fugiat sit veniam enim commodo ex laborum cupidatat eiusmod sint non officia irure ex. Cillum Lorem consectetur nisi consequat ullamco adipisicing.\r\n",
+  "carIndication": 1
+  }
+  ]

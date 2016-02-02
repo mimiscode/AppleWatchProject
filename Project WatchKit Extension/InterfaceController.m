@@ -7,6 +7,8 @@
 //
 
 #import "InterfaceController.h"
+#import "calendarFactory.h"
+#import "Event.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 
 
@@ -44,6 +46,7 @@
 
 - (IBAction)OnTouchOk {
     NSLog(@"OnTouchOk ! ");
+    
     [self pushControllerWithName:@"Test" context:medicationData];
 
 }
@@ -55,28 +58,24 @@
     [self pushControllerWithName:@"Info" context:nil];
 }
 
-/*
-- (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message {
-    NSString* msg = [message objectForKey:@"message"];
-    NSLog(@"%@",msg);
-    
-}
-
-- (void)session:(WCSession *)session didReceiveFile:(WCSessionFile *)file {
-    
-    NSLog(@"File has been received:%@", file);
-    
-}
- */
 
 - (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {
     
     NSLog(@"didReceiveApplicationContext");
     
     id appC = applicationContext;
-    //NSLog(@"%@",appC);
+    NSLog(@"RECEIVED DICO IS : %@",appC);
     
     medicationData = appC;
+}
+
+- (void)session:(WCSession *)session
+ didReceiveFile:(WCSessionFile *)file{
+    NSLog(@"File transfer : %@",file);
+    NSData *fileData = [NSData dataWithContentsOfURL: [file fileURL]];
+    NSArray* calendar = [calendarFactory getPlannedWeekWithCalendar:fileData];
+    Event* ev = [[calendar objectAtIndex:0] objectAtIndex:0];
+    NSLog(@"Calendar is : %d ", ev.idd);
 }
 
 

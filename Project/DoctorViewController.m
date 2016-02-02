@@ -46,7 +46,6 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
     
     self.allDoctors = [doctorFactory getDoctors];
     self.doctorsToDisplay = self.allDoctors;
-    NSLog(@" user doc name : %@", self.userDoctor.firstname);
     [self.doctorsListView reloadData];
     
 }
@@ -167,8 +166,6 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
                                  ];
     }
     
-    NSLog(@"Tab result : %@", self.doctorsToDisplay);
-    
     [self.doctorsListView reloadData];
 }
 
@@ -196,7 +193,6 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"loggg111");
     
     switch(buttonIndex) {
         case 1:

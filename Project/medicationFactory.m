@@ -20,7 +20,6 @@
     /*Mock datas*/
     if(MOCK_MODE){
         JSONData = [medicationMockWebService getMedications];
-        NSLog(@"MEDICATIONJSON %@",JSONData);
     }
     
     /*Real datas*/
@@ -35,8 +34,6 @@
     NSArray* result = [NSMutableArray new];
     result = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
     
-    NSLog(@"Test du resultat : %@",result);
-    
     result = [self formatMedicationsWithMedications: result];
     
     return result;
@@ -50,7 +47,6 @@
     {
         for(NSObject* obj in medications){
             
-            NSLog(@"Medications : obj=%@", obj);
             Medication* medication = [Medication new];
             
             

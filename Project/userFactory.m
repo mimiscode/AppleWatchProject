@@ -21,7 +21,6 @@
     /*Mock datas*/
     if(MOCK_MODE){
         JSONData = [userMockWebService getUsers];
-         NSLog(@"USERJSON %@",JSONData);
     }
     
     /*Real datas*/
@@ -35,8 +34,6 @@
     
     NSArray* result = [NSMutableArray new];
     result = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
-    
-    NSLog(@"Test du resultat user: %@",result);
     
     result = [self formatUsersWithUsers: result];
     
@@ -64,9 +61,7 @@
     {
         for(NSObject* obj in users){
             
-            NSLog(@"obj=%@", obj);
             User* user = [User new];
-            
             
             user = [user initUserWithId:[[obj valueForKey:@"idd"] intValue]
                                  andFirstname:[obj valueForKey:@"firstname"]

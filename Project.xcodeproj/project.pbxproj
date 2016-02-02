@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		192A8B7B1BC712C30043B109 /* PillboxMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 192A8B7A1BC712C30043B109 /* PillboxMenu.png */; settings = {ASSET_TAGS = (); }; };
-		192A8B7D1BC7133D0043B109 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192A8B7C1BC7133D0043B109 /* ResultsViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		192A8B801BC724040043B109 /* medicationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 192A8B7F1BC724040043B109 /* medicationFactory.m */; settings = {ASSET_TAGS = (); }; };
-		192A8B831BC724A50043B109 /* medicationMockWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 192A8B821BC724A50043B109 /* medicationMockWebService.m */; settings = {ASSET_TAGS = (); }; };
-		1967D15C1BC79365004E2AD6 /* InfoInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D14F1BC79365004E2AD6 /* InfoInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
-		1967D1601BC79365004E2AD6 /* ResponseNo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D1571BC79365004E2AD6 /* ResponseNo.m */; settings = {ASSET_TAGS = (); }; };
-		1967D1611BC79365004E2AD6 /* ResponseNoInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D1591BC79365004E2AD6 /* ResponseNoInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
-		1967D16A1BC7A7DF004E2AD6 /* medicationWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D1691BC7A7DF004E2AD6 /* medicationWebService.m */; settings = {ASSET_TAGS = (); }; };
+		192A8B7B1BC712C30043B109 /* PillboxMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 192A8B7A1BC712C30043B109 /* PillboxMenu.png */; };
+		192A8B7D1BC7133D0043B109 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192A8B7C1BC7133D0043B109 /* ResultsViewController.xib */; };
+		192A8B801BC724040043B109 /* medicationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 192A8B7F1BC724040043B109 /* medicationFactory.m */; };
+		192A8B831BC724A50043B109 /* medicationMockWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 192A8B821BC724A50043B109 /* medicationMockWebService.m */; };
+		1967D15C1BC79365004E2AD6 /* InfoInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D14F1BC79365004E2AD6 /* InfoInterfaceController.m */; };
+		1967D1601BC79365004E2AD6 /* ResponseNo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D1571BC79365004E2AD6 /* ResponseNo.m */; };
+		1967D1611BC79365004E2AD6 /* ResponseNoInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D1591BC79365004E2AD6 /* ResponseNoInterfaceController.m */; };
+		1967D16A1BC7A7DF004E2AD6 /* medicationWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1967D1691BC7A7DF004E2AD6 /* medicationWebService.m */; };
 		4900B3911BC674900081FBE3 /* AddPillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900B3771BC674900081FBE3 /* AddPillViewController.m */; };
 		4900B3931BC674900081FBE3 /* connexionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900B37A1BC674900081FBE3 /* connexionViewController.m */; };
 		4900B3941BC674900081FBE3 /* connexionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4900B37B1BC674900081FBE3 /* connexionViewController.xib */; };
@@ -61,28 +61,37 @@
 		4925ED041BC5D3A5003D73D7 /* userWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ED031BC5D3A5003D73D7 /* userWebService.m */; };
 		4925ED071BC5D3BB003D73D7 /* userMockWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ED061BC5D3BB003D73D7 /* userMockWebService.m */; };
 		4925ED091BC5D7CA003D73D7 /* userMocks.JSON in Resources */ = {isa = PBXBuildFile; fileRef = 4925ED081BC5D7CA003D73D7 /* userMocks.JSON */; };
-		632625381C4EBF4E00E14B22 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625311C4EBF4E00E14B22 /* check.png */; settings = {ASSET_TAGS = (); }; };
-		632625391C4EBF4E00E14B22 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625311C4EBF4E00E14B22 /* check.png */; settings = {ASSET_TAGS = (); }; };
-		6326253A1C4EBF4E00E14B22 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625321C4EBF4E00E14B22 /* clock.png */; settings = {ASSET_TAGS = (); }; };
-		6326253B1C4EBF4E00E14B22 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625321C4EBF4E00E14B22 /* clock.png */; settings = {ASSET_TAGS = (); }; };
-		6326253C1C4EBF4E00E14B22 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625331C4EBF4E00E14B22 /* cross.png */; settings = {ASSET_TAGS = (); }; };
-		6326253D1C4EBF4E00E14B22 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625331C4EBF4E00E14B22 /* cross.png */; settings = {ASSET_TAGS = (); }; };
-		6326253E1C4EBF4E00E14B22 /* noun_291_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625341C4EBF4E00E14B22 /* noun_291_cc.png */; settings = {ASSET_TAGS = (); }; };
-		6326253F1C4EBF4E00E14B22 /* noun_291_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625341C4EBF4E00E14B22 /* noun_291_cc.png */; settings = {ASSET_TAGS = (); }; };
-		632625401C4EBF4E00E14B22 /* panneaujaune.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625351C4EBF4E00E14B22 /* panneaujaune.png */; settings = {ASSET_TAGS = (); }; };
-		632625411C4EBF4E00E14B22 /* panneaujaune.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625351C4EBF4E00E14B22 /* panneaujaune.png */; settings = {ASSET_TAGS = (); }; };
-		632625421C4EBF4E00E14B22 /* panneauorange.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625361C4EBF4E00E14B22 /* panneauorange.png */; settings = {ASSET_TAGS = (); }; };
-		632625431C4EBF4E00E14B22 /* panneauorange.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625361C4EBF4E00E14B22 /* panneauorange.png */; settings = {ASSET_TAGS = (); }; };
-		632625441C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; settings = {ASSET_TAGS = (); }; };
-		632625451C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; settings = {ASSET_TAGS = (); }; };
-		63281D9F1C59075A00163A17 /* TestInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63281D9E1C59075A00163A17 /* TestInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
-		633A3B9A1C4EA8E30048F4C9 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 633A3B991C4EA8E30048F4C9 /* PushNotificationPayload.apns */; settings = {ASSET_TAGS = (); }; };
-		633A3B9F1C4EBD140048F4C9 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9C1C4EBD140048F4C9 /* InterfaceController.m */; settings = {ASSET_TAGS = (); }; };
-		633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9E1C4EBD140048F4C9 /* NotificationController.m */; settings = {ASSET_TAGS = (); }; };
-		633A3BA31C4EBD2A0048F4C9 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3BA21C4EBD2A0048F4C9 /* ExtensionDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		633A3BA61C4EBD390048F4C9 /* AlertNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3BA51C4EBD390048F4C9 /* AlertNotificationController.m */; settings = {ASSET_TAGS = (); }; };
-		63F13A401C59456200116563 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4925EC951BC55B6E003D73D7 /* Interface.storyboard */; settings = {ASSET_TAGS = (); }; };
-		63F13A431C5BC6C800116563 /* CustomTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F13A421C5BC6C800116563 /* CustomTableRowController.m */; settings = {ASSET_TAGS = (); }; };
+		632625381C4EBF4E00E14B22 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625311C4EBF4E00E14B22 /* check.png */; };
+		632625391C4EBF4E00E14B22 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625311C4EBF4E00E14B22 /* check.png */; };
+		6326253A1C4EBF4E00E14B22 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625321C4EBF4E00E14B22 /* clock.png */; };
+		6326253B1C4EBF4E00E14B22 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625321C4EBF4E00E14B22 /* clock.png */; };
+		6326253C1C4EBF4E00E14B22 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625331C4EBF4E00E14B22 /* cross.png */; };
+		6326253D1C4EBF4E00E14B22 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625331C4EBF4E00E14B22 /* cross.png */; };
+		6326253E1C4EBF4E00E14B22 /* noun_291_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625341C4EBF4E00E14B22 /* noun_291_cc.png */; };
+		6326253F1C4EBF4E00E14B22 /* noun_291_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625341C4EBF4E00E14B22 /* noun_291_cc.png */; };
+		632625401C4EBF4E00E14B22 /* panneaujaune.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625351C4EBF4E00E14B22 /* panneaujaune.png */; };
+		632625411C4EBF4E00E14B22 /* panneaujaune.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625351C4EBF4E00E14B22 /* panneaujaune.png */; };
+		632625421C4EBF4E00E14B22 /* panneauorange.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625361C4EBF4E00E14B22 /* panneauorange.png */; };
+		632625431C4EBF4E00E14B22 /* panneauorange.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625361C4EBF4E00E14B22 /* panneauorange.png */; };
+		632625441C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; };
+		632625451C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; };
+		63281D9F1C59075A00163A17 /* TestInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63281D9E1C59075A00163A17 /* TestInterfaceController.m */; };
+		633A3B9A1C4EA8E30048F4C9 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 633A3B991C4EA8E30048F4C9 /* PushNotificationPayload.apns */; };
+		633A3B9F1C4EBD140048F4C9 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9C1C4EBD140048F4C9 /* InterfaceController.m */; };
+		633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9E1C4EBD140048F4C9 /* NotificationController.m */; };
+		633A3BA31C4EBD2A0048F4C9 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3BA21C4EBD2A0048F4C9 /* ExtensionDelegate.m */; };
+		633A3BA61C4EBD390048F4C9 /* AlertNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3BA51C4EBD390048F4C9 /* AlertNotificationController.m */; };
+		63F13A401C59456200116563 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4925EC951BC55B6E003D73D7 /* Interface.storyboard */; };
+		63F13A431C5BC6C800116563 /* CustomTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F13A421C5BC6C800116563 /* CustomTableRowController.m */; };
+		BE0B13A21C60A0DF0047D485 /* calendarFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ECCB1BC571BC003D73D7 /* calendarFactory.m */; };
+		BE0B13A31C60A6370047D485 /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ECC71BC55EA2003D73D7 /* Medication.m */; };
+		BE0B13A41C60A63B0047D485 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ECF11BC5C2F9003D73D7 /* Doctor.m */; };
+		BE0B13A51C60A6400047D485 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ECFD1BC5D09F003D73D7 /* User.m */; };
+		BE0B13A61C60A6920047D485 /* calendarMockWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ECD81BC58EF8003D73D7 /* calendarMockWebService.m */; };
+		BE0B13A71C60A6B80047D485 /* medicationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 192A8B7F1BC724040043B109 /* medicationFactory.m */; };
+		BE0B13A81C60A6C50047D485 /* medicationMockWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 192A8B821BC724A50043B109 /* medicationMockWebService.m */; };
+		BE0B13AA1C60B5DD0047D485 /* medicationMocks.JSON in Resources */ = {isa = PBXBuildFile; fileRef = BE0B13A91C60B5DD0047D485 /* medicationMocks.JSON */; };
+		BEFDC5E91C5FCF81003EE5E7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ECC41BC55E18003D73D7 /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +245,7 @@
 		633A3BA51C4EBD390048F4C9 /* AlertNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertNotificationController.m; sourceTree = "<group>"; };
 		63F13A411C5BC6C800116563 /* CustomTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableRowController.h; sourceTree = "<group>"; };
 		63F13A421C5BC6C800116563 /* CustomTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableRowController.m; sourceTree = "<group>"; };
+		BE0B13A91C60B5DD0047D485 /* medicationMocks.JSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medicationMocks.JSON; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +412,7 @@
 		4925ECA41BC55B6E003D73D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE0B13A91C60B5DD0047D485 /* medicationMocks.JSON */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -626,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				632625431C4EBF4E00E14B22 /* panneauorange.png in Resources */,
+				BE0B13AA1C60B5DD0047D485 /* medicationMocks.JSON in Resources */,
 				6326253F1C4EBF4E00E14B22 /* noun_291_cc.png in Resources */,
 				632625451C4EBF4E00E14B22 /* pill.png in Resources */,
 				6326253D1C4EBF4E00E14B22 /* cross.png in Resources */,
@@ -679,14 +691,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0B13A31C60A6370047D485 /* Medication.m in Sources */,
 				1967D15C1BC79365004E2AD6 /* InfoInterfaceController.m in Sources */,
+				BE0B13A81C60A6C50047D485 /* medicationMockWebService.m in Sources */,
 				63281D9F1C59075A00163A17 /* TestInterfaceController.m in Sources */,
+				BE0B13A71C60A6B80047D485 /* medicationFactory.m in Sources */,
+				BEFDC5E91C5FCF81003EE5E7 /* Event.m in Sources */,
+				BE0B13A41C60A63B0047D485 /* Doctor.m in Sources */,
 				633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */,
 				633A3BA61C4EBD390048F4C9 /* AlertNotificationController.m in Sources */,
 				633A3B9F1C4EBD140048F4C9 /* InterfaceController.m in Sources */,
+				BE0B13A61C60A6920047D485 /* calendarMockWebService.m in Sources */,
+				BE0B13A51C60A6400047D485 /* User.m in Sources */,
 				1967D1611BC79365004E2AD6 /* ResponseNoInterfaceController.m in Sources */,
 				633A3BA31C4EBD2A0048F4C9 /* ExtensionDelegate.m in Sources */,
 				1967D1601BC79365004E2AD6 /* ResponseNo.m in Sources */,
+				BE0B13A21C60A0DF0047D485 /* calendarFactory.m in Sources */,
 				63F13A431C5BC6C800116563 /* CustomTableRowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

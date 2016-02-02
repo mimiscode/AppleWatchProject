@@ -15,9 +15,10 @@
 
 @implementation calendarFactory
 
-+(NSArray*) getCalendar{
-    
-    NSData *JSONData = [NSData new];
+
+
++(NSData*) getCalendar{
+    NSData* JSONData = [NSData new];
     
     /*Mock datas*/
     if(MOCK_MODE){
@@ -28,14 +29,21 @@
         /*Real datas*/
         JSONData = [calendarWebService getCalendar];
     }
-   
-    if(!JSONData){
-        return nil;
-    }
     
+    return JSONData;
+}
+
+
+
++(NSArray*) getPlannedWeekWithCalendar:(NSData*)calendar{
+    
+    if(!calendar){
+        calendar = [self getCalendar];
+    }
+
     
     NSArray* result = [NSArray new];
-    result = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
+    result = [NSJSONSerialization JSONObjectWithData:calendar options:NSJSONReadingMutableContainers error:nil];
     
     result = [self formatEventsWithCalendar:result];
     result = [self getSixNextDaysEventsWithCalendar:result];
@@ -50,7 +58,7 @@
     JSONData = [calendarMockWebService getCalendar];
     
     if(!JSONData){
-        return nil;
+        return nil; 
     }
     
     NSArray *testDict = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
@@ -66,7 +74,6 @@
 
 
 +(NSArray*) formatEventsWithCalendar:(NSArray*) calendar{
-    NSLog(@"test 1");
     NSMutableArray* result = [NSMutableArray new];
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
     NSArray* medicationList = [medicationFactory getMedications];
@@ -75,8 +82,7 @@
     
     
     if (calendar!=nil)
-    {       NSLog(@" taille : %lu",(unsigned long)[medicationList count]);
-        
+    {
             for(Event* obj in calendar){
                 /*for(medication in medicationList){
                     if([medication idd] == [[obj valueForKey:@"medication"]intValue])
@@ -84,7 +90,6 @@
                 }
              */
                 
-                NSLog(@"obj=%@", obj);
                 Event* event = [Event new];
                 
                 event = [event initEventWithId:[[obj valueForKey:@"idd"] intValue]
@@ -113,7 +118,6 @@
 
 
 +(NSArray*) getSixNextDaysEventsWithCalendar:(NSArray*)calendar{
-    
     
     NSMutableArray* result = [NSMutableArray new];
      NSDateComponents *todayComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];

@@ -5,7 +5,6 @@
 //  Created by sylvain vincent on 07/10/2015.
 //  Copyright © 2015 ESGI. All rights reserved.
 //
-
 #import "PillboxViewController.h"
 #import "calendarFactory.h"
 #import "DayDetailViewController.h"
@@ -21,15 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    //Active Session connection with iWatch
-    if([WCSession class] && [WCSession isSupported]){
-        WCSession* session = [WCSession defaultSession];
-        session.delegate = self;
-        [session activateSession];
-        
-    }
-
 
     //Get next days labels
     
@@ -118,37 +108,13 @@
 - (IBAction)onTouchFirstDay:(id)sender {
     DayDetailViewController* dayDetail1 = [DayDetailViewController new];
     dayDetail1.dayEvents = self.calendarArray[0];
-    
-   /* NSArray * foo = [[NSArray alloc] initWithObjects:@"foo",@"bar",@"baz",nil];
-    
-    
-    NSDictionary *inventory = @{
-                                @"Mercedes-Benz SLK250" : [NSNumber numberWithInt:13],
-                                @"Mercedes-Benz E350" : [NSNumber numberWithInt:22],
-                                @"BMW M3 Coupe" : [NSNumber numberWithInt:19],
-                                @"BMW X6" : [NSNumber numberWithInt:16],
-                                };
-    
-    id testArray = [calendarFactory getCalendarTest];
-    
-    [[WCSession defaultSession] updateApplicationContext:testArray error:nil];
-    
-    */
-    
-    /*if([WCSession defaultSession].reachable) {
-     [[WCSession defaultSession] sendMessage:@{@"message" : @"Hello from iPhone"} replyHandler:nil errorHandler:nil];
-     }
-     */
-    
-    //[self.navigationController pushViewController:dayDetail1 animated:NO];
-    
-}
+   }
 
 - (IBAction)onTouchSecondDay:(id)sender {
     DayDetailViewController* dayDetail2 = [DayDetailViewController new];
     dayDetail2.dayEvents = self.calendarArray[1];
 
-  //  [self.navigationController pushViewController:dayDetail2 animated:NO];
+    [self.navigationController pushViewController:dayDetail2 animated:NO];
 }
 
 
@@ -156,13 +122,9 @@
     DayDetailViewController* dayDetail3 = [DayDetailViewController new];
     dayDetail3.dayEvents = self.calendarArray[2];
     
-
-    id testArray = [calendarFactory getCalendarTest];
+    NSArray *testArray = [calendarFactory getCalendar];
     
-    [[WCSession defaultSession] updateApplicationContext:testArray error:nil];
-
-    
-    //[self.navigationController pushViewController:dayDetail3 animated:NO];
+    [self.navigationController pushViewController:dayDetail3 animated:NO];
 }
 
 - (IBAction)onTouchFourthDay:(id)sender {
@@ -202,16 +164,6 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)session:(WCSession *)session didFinishFileTransfer:(WCSessionFileTransfer *)fileTransfer error:(NSError *)error {
-    
-    if (!error) {
-        NSLog(@"successful transfer");
-    }
-    else {
-        NSLog(@"failed transfer");
-    }
-
-}
 
 - (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message {
     NSString* msg = [message objectForKey:@"times"];
