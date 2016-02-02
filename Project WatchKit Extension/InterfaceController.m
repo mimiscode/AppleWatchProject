@@ -8,6 +8,7 @@
 
 #import "InterfaceController.h"
 #import "calendarFactory.h"
+#import "medicationFactory.h"
 #import "Event.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 
@@ -20,7 +21,7 @@
 
 @implementation InterfaceController
 
-@synthesize medicationData;
+@synthesize weekEvents = weekEvents_;
 
 
 - (void)awakeWithContext:(id)context {
@@ -44,10 +45,52 @@
     [super didDeactivate];
 }
 
+-(void)setEvent{
+    //*******************
+    //TODO: check if self.weekEvent not null. If null, read local storage
+    //*******************
+    
+    Event* nextEvent = [InterfaceController getNextEvent:self.weekEvents];
+    NSLog(@"NExt event id is : %d", nextEvent.idd);
+    
+    Medication* currentMedication = [medicationFactory getMedicationWithId:nextEvent.medication];
+    
+    self.medicationLabel.text = currentMedication.label;
+    self.medicationNumber.text = [NSString stringWithFormat:@"x%d",nextEvent.numberMedications];
+}
+
+
++(Event*)getNextEvent:(NSArray*)weekEvents{
+    for (int i=0; i<weekEvents.count; i++){
+        NSArray* dayEvents = [weekEvents objectAtIndex:i];
+        Event* result;
+        
+        for (int j=0; j<dayEvents.count; j++) {
+            // Search next event comparing dates
+            
+            if(!result){
+                result = [dayEvents objectAtIndex:j];
+            }
+            else{
+                Event* currentEvent = [dayEvents objectAtIndex:j];
+                NSDate* currentEventDate = currentEvent.date;
+                NSDate* nextEventDate = result.date;
+                if ([ currentEventDate compare:nextEventDate] == NSOrderedAscending) {
+                    NSLog(@"date1 is earlier than date2");
+                    result = weekEvents[i][j];
+                }
+            }
+            
+        }
+        return result;
+    }
+    return nil;
+}
+
 - (IBAction)OnTouchOk {
     NSLog(@"OnTouchOk ! ");
     
-    [self pushControllerWithName:@"Test" context:medicationData];
+    //[self pushControllerWithName:@"Test" context:medicationData];
 
 }
 
@@ -59,23 +102,13 @@
 }
 
 
-- (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {
-    
-    NSLog(@"didReceiveApplicationContext");
-    
-    id appC = applicationContext;
-    NSLog(@"RECEIVED DICO IS : %@",appC);
-    
-    medicationData = appC;
-}
 
 - (void)session:(WCSession *)session
  didReceiveFile:(WCSessionFile *)file{
     NSLog(@"File transfer : %@",file);
     NSData *fileData = [NSData dataWithContentsOfURL: [file fileURL]];
-    NSArray* calendar = [calendarFactory getPlannedWeekWithCalendar:fileData];
-    Event* ev = [[calendar objectAtIndex:0] objectAtIndex:0];
-    NSLog(@"Calendar is : %d ", ev.idd);
+    self.weekEvents = [calendarFactory getPlannedWeekWithCalendar:fileData];
+    [self setEvent];
 }
 
 

@@ -122,8 +122,6 @@
     DayDetailViewController* dayDetail3 = [DayDetailViewController new];
     dayDetail3.dayEvents = self.calendarArray[2];
     
-    NSArray *testArray = [calendarFactory getCalendar];
-    
     [self.navigationController pushViewController:dayDetail3 animated:NO];
 }
 
