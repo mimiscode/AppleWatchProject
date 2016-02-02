@@ -45,7 +45,6 @@
 - (IBAction)OnTouchOk {
     NSLog(@"OnTouchOk ! ");
     [self pushControllerWithName:@"Test" context:medicationData];
-
 }
 
 - (IBAction)OnTouchNo {

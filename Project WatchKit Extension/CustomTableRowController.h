@@ -13,4 +13,6 @@
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *titleLbl;
 
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *dateLbl;
+
 @end

@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15D21" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VvP-hg-NrE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
     </dependencies>
     <scenes>
-        <!--Test-->
+        <!--Home-->
+        <scene sceneID="Nqg-ik-ctq">
+            <objects>
+                <controller identifier="Home" title="Home" spacing="0.0" id="VvP-hg-NrE" customClass="HomeInterfaceController">
+                    <items>
+                        <group width="1" height="81" alignment="left" id="lCB-aH-xKB">
+                            <items>
+                                <label width="136" height="75" alignment="center" text="Aucune alerte trouvée" textAlignment="center" numberOfLines="0" id="3ha-WA-vdK"/>
+                            </items>
+                        </group>
+                        <button width="52" height="50" alignment="center" verticalAlignment="center" backgroundImage="check.png" id="e0i-Pc-2Cx">
+                            <connections>
+                                <action selector="OnTouchNextAlert" destination="VvP-hg-NrE" id="cop-PA-hsI"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.72941176470000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="0.0"/>
+                    <connections>
+                        <outlet property="nextAlert" destination="e0i-Pc-2Cx" id="1kZ-Ll-pmk"/>
+                        <outlet property="nextAlertLbl" destination="3ha-WA-vdK" id="Cav-Ng-Wg2"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="168" y="157"/>
+        </scene>
+        <!--MyList-->
         <scene sceneID="YwT-P2-pMZ">
             <objects>
-                <controller identifier="Test" title="Test" hidesWhenLoading="NO" id="Nb0-lQ-iVl" customClass="TestInterfaceController">
+                <controller identifier="MyList" title="MyList" hidesWhenLoading="NO" id="Nb0-lQ-iVl" customClass="MyListInterfaceController">
                     <items>
                         <table alignment="left" id="MMt-8V-wRu">
                             <items>
                                 <tableRow identifier="CustomTableRowController" id="H1Y-YP-uF7" customClass="CustomTableRowController">
-                                    <group key="rootItem" width="1" alignment="left" id="hjN-Wn-VQ9">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="hjN-Wn-VQ9">
                                         <items>
-                                            <label alignment="left" text="Label" id="Bh5-oD-YHR"/>
+                                            <label width="1" alignment="left" text="Label" id="Bh5-oD-YHR"/>
+                                            <label width="1" alignment="left" text="Label" id="QK9-lQ-pH3" userLabel="Date Lbl">
+                                                <color key="textColor" red="0.36078431370000003" green="0.72941176470000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="dateLbl" destination="QK9-lQ-pH3" id="D3e-p2-H8T"/>
                                         <outlet property="titleLbl" destination="Bh5-oD-YHR" id="T47-rg-Pnt"/>
                                     </connections>
                                 </tableRow>
@@ -26,7 +56,7 @@
                         </table>
                     </items>
                     <connections>
-                        <outlet property="medicationTableView" destination="MMt-8V-wRu" id="kYD-Ft-7ND"/>
+                        <outlet property="medicationTableView" destination="MMt-8V-wRu" id="6sx-kV-jv6"/>
                     </connections>
                 </controller>
             </objects>
@@ -35,7 +65,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller hidesWhenLoading="NO" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <group width="134" height="33" alignment="left" id="pYL-MD-BTR">
                             <items>
@@ -76,7 +106,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="510" y="158.5"/>
+            <point key="canvasLocation" x="168" y="-70.5"/>
         </scene>
         <!--Snooze-->
         <scene sceneID="580-xL-4cD">
@@ -124,7 +154,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="681" y="160"/>
+            <point key="canvasLocation" x="339" y="-69"/>
         </scene>
         <!--Notice-->
         <scene sceneID="e0D-cG-qPO">
@@ -144,9 +174,12 @@
                         </label>
                         <imageView width="66" height="46" alignment="center" image="panneaujaune.png" id="8LG-6w-FtP"/>
                     </items>
+                    <connections>
+                        <outlet property="noticeTitlelbl" destination="oHm-gC-6HV" id="U5y-Rg-JU5"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="510" y="394"/>
+            <point key="canvasLocation" x="500" y="157"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -164,4 +197,5 @@
             <point key="canvasLocation" x="220" y="643"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

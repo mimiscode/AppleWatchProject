@@ -8,6 +8,7 @@
 
 #import "PillboxViewController.h"
 #import "calendarFactory.h"
+#import "medicationFactory.h"
 #import "DayDetailViewController.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 
@@ -47,17 +48,15 @@
     //Get Calendar
     
      self.calendarArray = [calendarFactory getCalendar];
-
+    id testCalendar = [calendarFactory getCalendar];
     
     if([self.calendarArray[0] count]){
         [self.rappel1 setText:[NSString stringWithFormat:@"%lu rappels",(unsigned long)[self.calendarArray[0] count]]];
-        
-        
     }else{
-            [self.rappel1 setHidden:true];
-            [self.day1 setBackgroundColor:[UIColor grayColor]];
+        [self.rappel1 setHidden:true];
+        [self.day1 setBackgroundColor:[UIColor grayColor]];
         self.day1.enabled = NO;
-        }
+    }
     
     if([self.calendarArray[1] count])
     [self.rappel2 setText:[NSString stringWithFormat:@"%lu rappels",(unsigned long)[self.calendarArray[1] count]]];
@@ -118,29 +117,9 @@
 - (IBAction)onTouchFirstDay:(id)sender {
     DayDetailViewController* dayDetail1 = [DayDetailViewController new];
     dayDetail1.dayEvents = self.calendarArray[0];
-    
-   /* NSArray * foo = [[NSArray alloc] initWithObjects:@"foo",@"bar",@"baz",nil];
-    
-    
-    NSDictionary *inventory = @{
-                                @"Mercedes-Benz SLK250" : [NSNumber numberWithInt:13],
-                                @"Mercedes-Benz E350" : [NSNumber numberWithInt:22],
-                                @"BMW M3 Coupe" : [NSNumber numberWithInt:19],
-                                @"BMW X6" : [NSNumber numberWithInt:16],
-                                };
-    
-    id testArray = [calendarFactory getCalendarTest];
-    
-    [[WCSession defaultSession] updateApplicationContext:testArray error:nil];
-    
-    */
-    
-    /*if([WCSession defaultSession].reachable) {
-     [[WCSession defaultSession] sendMessage:@{@"message" : @"Hello from iPhone"} replyHandler:nil errorHandler:nil];
-     }
-     */
-    
-    //[self.navigationController pushViewController:dayDetail1 animated:NO];
+   
+    [self.navigationController pushViewController:dayDetail1 animated:NO];
+
     
 }
 
@@ -148,7 +127,7 @@
     DayDetailViewController* dayDetail2 = [DayDetailViewController new];
     dayDetail2.dayEvents = self.calendarArray[1];
 
-  //  [self.navigationController pushViewController:dayDetail2 animated:NO];
+    [self.navigationController pushViewController:dayDetail2 animated:NO];
 }
 
 
@@ -157,9 +136,9 @@
     dayDetail3.dayEvents = self.calendarArray[2];
     
 
-    id testArray = [calendarFactory getCalendarTest];
-    
-    [[WCSession defaultSession] updateApplicationContext:testArray error:nil];
+    id myCalendarArray = [calendarFactory getCalendarTest];
+
+    [[WCSession defaultSession] updateApplicationContext:myCalendarArray error:nil];
 
     
     //[self.navigationController pushViewController:dayDetail3 animated:NO];
