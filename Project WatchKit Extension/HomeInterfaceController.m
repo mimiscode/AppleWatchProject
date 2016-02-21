@@ -66,6 +66,21 @@
     medicationData = appC;
     
 }
+
+- (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message {
+   /* NSString* msg = [message objectForKey:@"Repousser ma prise de pilule"];
+    NSLog(@"%@",msg);
+    
+    
+    NSArray* actions = @[[WKAlertAction actionWithTitle:@"CLOSE" style:WKAlertActionStyleCancel handler:^{NSLog(@"CANCEL");
+    }],[WKAlertAction actionWithTitle:@"Repousser la pri" style:WKAlertActionStyleCancel handler:^{
+        
+    }]];
+    
+    [self presentAlertControllerWithTitle:@"SNOOZE" message:msg preferredStyle:WKAlertControllerStyleActionSheet actions:actions];
+    */
+    [self pushControllerWithName:@"alarmPill" context:nil];
+}
 @end
 
 

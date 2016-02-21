@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="339" y="157"/>
         </scene>
-        <!--Interface Controller-->
+        <!--alarmPill-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller hidesWhenLoading="NO" id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller identifier="alarmPill" hidesWhenLoading="NO" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <group width="134" height="33" alignment="left" id="pYL-MD-BTR">
                             <items>
@@ -191,10 +191,18 @@
                     <notificationCategory key="notificationCategory" id="JfB-70-Muf"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="gAx-Yp-exE" kind="relationship" relationship="dynamicNotificationInterface" id="KsN-XZ-gCS"/>
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="168" y="405"/>
+        </scene>
+        <!--Dynamic Notification Interface Controller-->
+        <scene sceneID="KZW-r3-O0g">
+            <objects>
+                <controller hidesWhenLoading="NO" id="gAx-Yp-exE"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="405"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

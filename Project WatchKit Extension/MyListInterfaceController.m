@@ -62,11 +62,9 @@
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     
-    //NSLog(@"%@",[table rowControllerAtIndex:rowIndex]);
     id dataList = [pushedData objectAtIndex:rowIndex];
     
     [self pushControllerWithName:@"Info" context:dataList];
-    
 }
 
 

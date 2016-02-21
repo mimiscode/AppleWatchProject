@@ -117,8 +117,12 @@
 - (IBAction)onTouchFirstDay:(id)sender {
     DayDetailViewController* dayDetail1 = [DayDetailViewController new];
     dayDetail1.dayEvents = self.calendarArray[0];
+    
+    id myCalendarArray = [calendarFactory getCalendarTest];
+    
+    [[WCSession defaultSession] updateApplicationContext:myCalendarArray error:nil];
    
-    [self.navigationController pushViewController:dayDetail1 animated:NO];
+   // [self.navigationController pushViewController:dayDetail1 animated:NO];
 
     
 }
@@ -126,22 +130,28 @@
 - (IBAction)onTouchSecondDay:(id)sender {
     DayDetailViewController* dayDetail2 = [DayDetailViewController new];
     dayDetail2.dayEvents = self.calendarArray[1];
-
-    [self.navigationController pushViewController:dayDetail2 animated:NO];
+    
+    NSDate *alertTime = [NSDate dateWithTimeIntervalSinceNow:10];
+    UIApplication* app = [UIApplication sharedApplication];
+    UILocalNotification* notifyAlarm = [[UILocalNotification alloc]
+                                        init];
+    if (notifyAlarm)
+    {
+        notifyAlarm.fireDate = alertTime;
+       // notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        //notifyAlarm.repeatInterval = 5;
+        //notifyAlarm.soundName = @"bell_tree.mp3";
+        notifyAlarm.alertBody = @"notification pilule";
+        [app scheduleLocalNotification:notifyAlarm];
+    }
+    //[self.navigationController pushViewController:dayDetail2 animated:NO];
 }
 
 
 - (IBAction)onTouchThirdDay:(id)sender {
     DayDetailViewController* dayDetail3 = [DayDetailViewController new];
     dayDetail3.dayEvents = self.calendarArray[2];
-    
-
-    id myCalendarArray = [calendarFactory getCalendarTest];
-
-    [[WCSession defaultSession] updateApplicationContext:myCalendarArray error:nil];
-
-    
-    //[self.navigationController pushViewController:dayDetail3 animated:NO];
+    [self.navigationController pushViewController:dayDetail3 animated:NO];
 }
 
 - (IBAction)onTouchFourthDay:(id)sender {
