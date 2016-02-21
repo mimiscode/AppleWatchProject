@@ -8,9 +8,10 @@
 
 #import "AppDelegate.h"
 #import "connexionViewController.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WCSessionDelegate>
 
 @end
 
@@ -29,8 +30,27 @@
     
     self.window = window;
     
+    //Request authorization for notifications setting to user on iOS 8.0 and later
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+    }
+    
     return YES;
 }
+
+- (void)application:(UIApplication *)application
+didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Nouvelle prise de pilule" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+    
+    if ([WCSession defaultSession].reachable) {
+        [[WCSession defaultSession] sendMessage:@{@"local notification" : @"new local notification"} replyHandler:nil errorHandler:nil];
+    }
+
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

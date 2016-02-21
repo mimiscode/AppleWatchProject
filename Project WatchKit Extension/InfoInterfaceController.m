@@ -7,15 +7,23 @@
 //
 
 #import "InfoInterfaceController.h"
-
+#import "CustomTableRowController.h"
 @interface InfoInterfaceController ()
 
 @end
 
 @implementation InfoInterfaceController
 
+@synthesize noticeTitlelbl;
+
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+    
+    NSLog(@"%@",context);
+    
+    NSString *contextTitle = [context objectForKey:@"idd"];
+
+    [noticeTitlelbl setText:[NSString stringWithFormat:@"pilule %@",contextTitle]];
     
     // Configure interface objects here.
 }

@@ -17,7 +17,7 @@
 @implementation TestInterfaceController
 
 @synthesize pushedData;
-@synthesize medicationTableView;
+//@synthesize medicationTableView;
 
 
 - (void)awakeWithContext:(id)context {
@@ -26,7 +26,17 @@
     NSLog(@"Test interface !");
     NSLog(@"display context : %@",context);
     
-    pushedData = context;
+    if (context == nil) {
+        NSLog(@"No data available");
+        
+        WKInterfaceLabel *noDataLbl = [WKInterfaceLabel new];
+        [noDataLbl setText:@"Aucun rappel disponible."];
+        
+        NSLog(@"%@",noDataLbl);
+        
+    }
+    
+  /*  pushedData = context;
     
     [medicationTableView setNumberOfRows:[pushedData count] withRowType:@"CustomTableRowController"];
     
@@ -40,13 +50,13 @@
         
     }
 
-    
+  */  
     // Configure interface objects here.
 }
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     
-    [self pushControllerWithName:@"Test" context:nil];
+    [self pushControllerWithName:@"Info" context:nil];
 
 }
 

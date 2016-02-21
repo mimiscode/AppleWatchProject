@@ -61,6 +61,8 @@
 		4925ED041BC5D3A5003D73D7 /* userWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ED031BC5D3A5003D73D7 /* userWebService.m */; };
 		4925ED071BC5D3BB003D73D7 /* userMockWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925ED061BC5D3BB003D73D7 /* userMockWebService.m */; };
 		4925ED091BC5D7CA003D73D7 /* userMocks.JSON in Resources */ = {isa = PBXBuildFile; fileRef = 4925ED081BC5D7CA003D73D7 /* userMocks.JSON */; };
+		630429411C60A44B00937811 /* HomeInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630429401C60A44B00937811 /* HomeInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
+		630429441C60A8E600937811 /* MyListInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630429431C60A8E600937811 /* MyListInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
 		632625381C4EBF4E00E14B22 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625311C4EBF4E00E14B22 /* check.png */; settings = {ASSET_TAGS = (); }; };
 		632625391C4EBF4E00E14B22 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625311C4EBF4E00E14B22 /* check.png */; settings = {ASSET_TAGS = (); }; };
 		6326253A1C4EBF4E00E14B22 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625321C4EBF4E00E14B22 /* clock.png */; settings = {ASSET_TAGS = (); }; };
@@ -75,7 +77,6 @@
 		632625431C4EBF4E00E14B22 /* panneauorange.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625361C4EBF4E00E14B22 /* panneauorange.png */; settings = {ASSET_TAGS = (); }; };
 		632625441C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; settings = {ASSET_TAGS = (); }; };
 		632625451C4EBF4E00E14B22 /* pill.png in Resources */ = {isa = PBXBuildFile; fileRef = 632625371C4EBF4E00E14B22 /* pill.png */; settings = {ASSET_TAGS = (); }; };
-		63281D9F1C59075A00163A17 /* TestInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63281D9E1C59075A00163A17 /* TestInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
 		633A3B9A1C4EA8E30048F4C9 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 633A3B991C4EA8E30048F4C9 /* PushNotificationPayload.apns */; settings = {ASSET_TAGS = (); }; };
 		633A3B9F1C4EBD140048F4C9 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9C1C4EBD140048F4C9 /* InterfaceController.m */; settings = {ASSET_TAGS = (); }; };
 		633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A3B9E1C4EBD140048F4C9 /* NotificationController.m */; settings = {ASSET_TAGS = (); }; };
@@ -216,6 +217,10 @@
 		4925ED061BC5D3BB003D73D7 /* userMockWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userMockWebService.m; sourceTree = "<group>"; };
 		4925ED081BC5D7CA003D73D7 /* userMocks.JSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userMocks.JSON; sourceTree = "<group>"; };
 		4925ED0D1BC5DF61003D73D7 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		6304293F1C60A44B00937811 /* HomeInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInterfaceController.h; sourceTree = "<group>"; };
+		630429401C60A44B00937811 /* HomeInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInterfaceController.m; sourceTree = "<group>"; };
+		630429421C60A8E600937811 /* MyListInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyListInterfaceController.h; sourceTree = "<group>"; };
+		630429431C60A8E600937811 /* MyListInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListInterfaceController.m; sourceTree = "<group>"; };
 		632625311C4EBF4E00E14B22 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		632625321C4EBF4E00E14B22 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		632625331C4EBF4E00E14B22 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
@@ -223,8 +228,6 @@
 		632625351C4EBF4E00E14B22 /* panneaujaune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panneaujaune.png; sourceTree = "<group>"; };
 		632625361C4EBF4E00E14B22 /* panneauorange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panneauorange.png; sourceTree = "<group>"; };
 		632625371C4EBF4E00E14B22 /* pill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pill.png; sourceTree = "<group>"; };
-		63281D9D1C59075A00163A17 /* TestInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInterfaceController.h; sourceTree = "<group>"; };
-		63281D9E1C59075A00163A17 /* TestInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInterfaceController.m; sourceTree = "<group>"; };
 		633A3B991C4EA8E30048F4C9 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		633A3B9B1C4EBD140048F4C9 /* InterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
 		633A3B9C1C4EBD140048F4C9 /* InterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
@@ -373,8 +376,6 @@
 				632625351C4EBF4E00E14B22 /* panneaujaune.png */,
 				632625361C4EBF4E00E14B22 /* panneauorange.png */,
 				632625371C4EBF4E00E14B22 /* pill.png */,
-				63281D9D1C59075A00163A17 /* TestInterfaceController.h */,
-				63281D9E1C59075A00163A17 /* TestInterfaceController.m */,
 				633A3BA41C4EBD390048F4C9 /* AlertNotificationController.h */,
 				633A3BA51C4EBD390048F4C9 /* AlertNotificationController.m */,
 				633A3BA11C4EBD2A0048F4C9 /* ExtensionDelegate.h */,
@@ -390,11 +391,15 @@
 				1967D1571BC79365004E2AD6 /* ResponseNo.m */,
 				1967D1581BC79365004E2AD6 /* ResponseNoInterfaceController.h */,
 				1967D1591BC79365004E2AD6 /* ResponseNoInterfaceController.m */,
-				4925ECAF1BC55B6E003D73D7 /* Assets.xcassets */,
-				4925ECB11BC55B6E003D73D7 /* Info.plist */,
-				4925ECA41BC55B6E003D73D7 /* Supporting Files */,
 				63F13A411C5BC6C800116563 /* CustomTableRowController.h */,
 				63F13A421C5BC6C800116563 /* CustomTableRowController.m */,
+				6304293F1C60A44B00937811 /* HomeInterfaceController.h */,
+				630429401C60A44B00937811 /* HomeInterfaceController.m */,
+				630429421C60A8E600937811 /* MyListInterfaceController.h */,
+				630429431C60A8E600937811 /* MyListInterfaceController.m */,
+				4925ECB11BC55B6E003D73D7 /* Info.plist */,
+				4925ECAF1BC55B6E003D73D7 /* Assets.xcassets */,
+				4925ECA41BC55B6E003D73D7 /* Supporting Files */,
 			);
 			path = "Project WatchKit Extension";
 			sourceTree = "<group>";
@@ -679,11 +684,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630429411C60A44B00937811 /* HomeInterfaceController.m in Sources */,
 				1967D15C1BC79365004E2AD6 /* InfoInterfaceController.m in Sources */,
-				63281D9F1C59075A00163A17 /* TestInterfaceController.m in Sources */,
 				633A3BA01C4EBD140048F4C9 /* NotificationController.m in Sources */,
 				633A3BA61C4EBD390048F4C9 /* AlertNotificationController.m in Sources */,
 				633A3B9F1C4EBD140048F4C9 /* InterfaceController.m in Sources */,
+				630429441C60A8E600937811 /* MyListInterfaceController.m in Sources */,
 				1967D1611BC79365004E2AD6 /* ResponseNoInterfaceController.m in Sources */,
 				633A3BA31C4EBD2A0048F4C9 /* ExtensionDelegate.m in Sources */,
 				1967D1601BC79365004E2AD6 /* ResponseNo.m in Sources */,

@@ -45,29 +45,15 @@
 - (IBAction)OnTouchOk {
     NSLog(@"OnTouchOk ! ");
     [self pushControllerWithName:@"Test" context:medicationData];
-
 }
 
 - (IBAction)OnTouchNo {
     [self pushControllerWithName:@"ResponseNo" context:nil];
 }
+
 - (IBAction)OnTouchPill {
     [self pushControllerWithName:@"Info" context:nil];
 }
-
-/*
-- (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message {
-    NSString* msg = [message objectForKey:@"message"];
-    NSLog(@"%@",msg);
-    
-}
-
-- (void)session:(WCSession *)session didReceiveFile:(WCSessionFile *)file {
-    
-    NSLog(@"File has been received:%@", file);
-    
-}
- */
 
 - (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {
     
