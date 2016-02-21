@@ -46,7 +46,6 @@
 +(void) connexionWithMail:(NSString*)mail andPassword:(NSString*)password completionHandler:(void (^)(User* user))myCompletion{
     
     
-    /*Mock datas*/
     [userWebService connexionWithMail:mail andPassword:password completionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
         
         User* user = [User new];
@@ -66,13 +65,11 @@
             else{
                 myCompletion(nil);
             }
-            
         }
         else{
                 NSLog(@"Connexion failed.");
                  myCompletion(nil);
             }
-
        
     }];
 
@@ -80,6 +77,38 @@
 
 
 
++(void) subscribeWithMail:(NSString*)mail andFirstname:(NSString*)firstname andName:(NSString*)name andPassword:(NSString*)password completionHandler:(void (^)(User* user))myCompletion{
+    
+    
+    [userWebService subscribeWithMail:mail andFirstname:firstname andName:name andPassword:password completionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
+        
+        User* user = [User new];
+        
+        if(!error){
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:0
+                                                                       error:NULL];
+            
+            int code = [[jsonDict valueForKey:@"code"] intValue];
+            
+            if(code == 0){
+                NSDictionary* jsonUser = [jsonDict objectForKey:@"object"];
+                user = [self formatUserWithJSON:jsonUser];
+                myCompletion(user);
+            }
+            else{
+                myCompletion(nil);
+            }
+        }
+        else{
+            NSLog(@"Connexion failed.");
+            myCompletion(nil);
+        }
+        
+    }];
+
+    
+}
 +(User*) formatUserWithJSON:(NSDictionary*) jsonUser{
     
     if(jsonUser == nil){

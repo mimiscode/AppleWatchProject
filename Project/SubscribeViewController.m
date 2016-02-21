@@ -7,6 +7,8 @@
 //
 
 #import "SubscribeViewController.h"
+#import "MenuViewController.h"
+#import "userFactory.h"
 
 @interface SubscribeViewController ()
 
@@ -22,6 +24,57 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)onSubscribeButtonClicked:(id)sender {
+    
+    NSString* mail = self.userMail.text;
+    NSString* firstname = self.userFirstname.text;
+    NSString* name = self.userName.text;
+    NSString* password = self.userPassword.text;
+    
+    if([mail isEqualToString:@""]
+       || [firstname isEqualToString:@""]
+       || [name isEqualToString:@""]
+       ||  [password isEqualToString:@""]){
+        [self.errorMessage setHidden:false];
+    }
+    else{
+        
+        [userFactory subscribeWithMail:mail andFirstname:firstname andName:name andPassword:password completionHandler:^(User* user) {
+            
+            if(user != nil){
+                [self goToMenuViewWithUser:user];
+            }
+            else{
+                [self displaySubscribeErrorMessage];
+            }
+        }];
+    }
+}
+
+
+-(void) goToMenuViewWithUser:(User*)user{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Inscription"
+                                                  message:@"Votre inscription a bien été prise en compte ! Vous êtes désormais connecté."
+                                                  delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        
+        [alert show];
+        
+        
+        MenuViewController *controller = [[MenuViewController alloc]init];
+        controller.user = user;
+        [self.navigationController pushViewController:controller animated:YES];
+    });
+}
+
+-(void) displaySubscribeErrorMessage{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.errorMessage setHidden:false];
+    });
+    
 }
 
 /*

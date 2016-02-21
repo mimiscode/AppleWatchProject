@@ -44,19 +44,20 @@
     [dataTask resume];
 }
 
-+(NSMutableURLRequest*)postUser:(NSString*)lastname :(NSString*)firstname :(NSString*)mail :(NSString*)password
-{
++(void)subscribeWithMail:(NSString*)mail  andFirstname:(NSString*)firstname andName:(NSString*)name andPassword:(NSString*)password completionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))myCompletion{
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://applewatchproject.herokuapp.com/users"]];
+    NSURL *url = [NSURL URLWithString:@"https://applewatchproject.herokuapp.com/users"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     [request setHTTPMethod:@"POST"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    [dictionary setValue:lastname forKey:@"lastname"];
+    [dictionary setValue:name forKey:@"lastname"];
     [dictionary setValue:firstname forKey:@"firstname"];
     [dictionary setValue:mail forKey:@"mail"];
     [dictionary setValue:password forKey:@"password"];
+
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
                                                    options:NSJSONWritingPrettyPrinted
@@ -65,13 +66,17 @@
     
     [request setValue:[NSString stringWithFormat:@"%lu",
                        (unsigned long)[data length]]
-   forHTTPHeaderField:@"Content-length"];
+    forHTTPHeaderField:@"Content-length"];
     
     [request setHTTPBody:data];
     
-    NSLog(@"%@", request);
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+        myCompletion(data, response, error);
+    }];
     
-    return request;
+    [dataTask resume];
+
 }
 
 @end
