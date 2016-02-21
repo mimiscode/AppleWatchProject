@@ -14,7 +14,9 @@
 
 +(NSArray*) getUsers;
 
-+(User*) connexionWithMail:(NSString*)mail andPassword:(NSString*)password;
++(void) connexionWithMail:(NSString*)mail andPassword:(NSString*)password completionHandler:(void (^)(User* user))completionHandler;
+
++(User*) formatUserWithJSON:(NSDictionary*) jsonDict;
 
 +(NSArray*) formatUsersWithUsers:(NSArray*)users;
 

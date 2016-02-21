@@ -13,6 +13,6 @@
 
 +(NSData*) getUsers;
 
-+(User*) connexionWithMail:(NSString*)mail andPassword:(NSString*)password;
++(void) connexionWithMail:(NSString*)mail andPassword:(NSString*)password completionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))completionHandler;;
 
 @end

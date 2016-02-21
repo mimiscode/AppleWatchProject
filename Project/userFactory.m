@@ -43,17 +43,60 @@
     return result;
 }
 
-+(User*) connexionWithMail:(NSString*)mail andPassword:(NSString*)password{
++(void) connexionWithMail:(NSString*)mail andPassword:(NSString*)password completionHandler:(void (^)(User* user))myCompletion{
     
-    User* user = [User new];
     
     /*Mock datas*/
-     user = [userMockWebService connexionWithMail:mail andPassword:password];
+    [userWebService connexionWithMail:mail andPassword:password completionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
+        
+        User* user = [User new];
+        
+        if(!error){
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:0
+                                                                       error:NULL];
+            
+            int code = [[jsonDict valueForKey:@"code"] intValue];
+            
+            if(code == 0){
+                NSDictionary* jsonUser = [jsonDict objectForKey:@"object"];
+                user = [self formatUserWithJSON:jsonUser];
+                myCompletion(user);
+            }
+            else{
+                myCompletion(nil);
+            }
+            
+        }
+        else{
+                NSLog(@"Connexion failed.");
+                 myCompletion(nil);
+            }
+
+       
+    }];
+
+}
+
+
+
++(User*) formatUserWithJSON:(NSDictionary*) jsonUser{
     
-    /*Real datas*/
-    // user = [userWebService connexionWithPhone:phone andPassword:password];
-    
+    if(jsonUser == nil){
+        return nil;
+    }
+    else{
+        
+    User* user = [User new];
+    user = [user initUserWithId:[[jsonUser valueForKey:@"idd"] intValue]
+                   andFirstname:[jsonUser valueForKey:@"firstname"]
+                    andLastname:[jsonUser valueForKey:@"lastname"]
+                    andPassword:[jsonUser valueForKey:@"password"]
+                        andMail:[jsonUser valueForKey:@"mail"]
+                   andDoctorIdd:[[jsonUser valueForKey:@"doctorIdd"] intValue]
+            ];
     return user;
+    }
 }
 
 +(NSArray*) formatUsersWithUsers:(NSArray*)users{

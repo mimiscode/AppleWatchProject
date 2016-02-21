@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface connexionViewController : UIViewController
 
@@ -20,5 +21,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *connectionButton;
 
+-(void) goToMenuViewWithUser:(User*)user;
+
+-(void) displayConnexionErrorMessage;
 
 @end

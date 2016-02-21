@@ -36,26 +36,39 @@
     
 }
 
+
 - (IBAction)onConnexionTouch:(id)sender {
     
+    NSString* userMail = self.mailField.text;
+    NSString* userPassword = self.passwordField.text;
     
-    //Connexion test
-    User* user = [userFactory connexionWithMail:self.mailField.text andPassword:self.passwordField.text];
-     if(!user){
-         self.ErrorMessage.hidden = false;
-     }
-     else{
-         
-         self.ErrorMessage.hidden = true;
-         
-         MenuViewController* menuViewController = [MenuViewController new];
-         menuViewController.user = user;
-         [self.navigationController pushViewController:menuViewController animated:NO];
-     //Doctor* userDoctor = [Doctor new];
-     //userDoctor = [doctorFactory getDoctorWithId:[user doctorIdd]];
-     //NSLog(@"Connexion réussie ! User doctor  : %@ %@", [userDoctor firstname], [userDoctor lastname]);
-         NSLog(@"Connexion réussie !");
-     }
+    [userFactory connexionWithMail:userMail andPassword:userPassword completionHandler:^(User* user) {
+        
+        if(user != nil){
+            [self goToMenuViewWithUser:user];
+        }
+        else{
+            [self displayConnexionErrorMessage];
+        }
+        
+            
+    }];
+    
+}
+
+
+-(void) goToMenuViewWithUser:(User*)user{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MenuViewController *controller = [[MenuViewController alloc]init];
+        controller.user = user;
+        [self.navigationController pushViewController:controller animated:YES];
+    });
+}
+
+-(void) displayConnexionErrorMessage{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.ErrorMessage setHidden:false];
+    });
     
 }
 
