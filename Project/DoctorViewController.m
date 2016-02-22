@@ -222,26 +222,6 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.doctorsListView reloadData];
 }
 
-
-/*
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"indice : %ld", (long)buttonIndex);
-    
-    switch(buttonIndex) {
-        case 1:
-                self.userDoctor = self.selectedDoctor;
-                [self.doctorFirstnameLabel setText:self.selectedDoctor.firstname];
-                [self.doctorLastnameLabel setText:self.selectedDoctor.lastname];
-                [self.doctorAddressLabel setText:self.selectedDoctor.address];
-                [self.doctorPhoneLabel setText:self.selectedDoctor.phone];
-                [self.doctorMailLabel setText:self.selectedDoctor.mail];
-            break;
-    }
-}
-
- 
- */
 -(void)threadStartAnimating{
     [self.activityIndicator startAnimating];
 }
