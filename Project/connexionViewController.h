@@ -20,9 +20,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *ErrorMessage;
 
 @property (weak, nonatomic) IBOutlet UIButton *connectionButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 
 -(void) goToMenuViewWithUser:(User*)user;
 
 -(void) displayConnexionErrorMessage;
+
+-(void) startLoading;
+
+-(void) stopLoading;
+
+-(void) threadStartAnimating;
+
+
 
 @end

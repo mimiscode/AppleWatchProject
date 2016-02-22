@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="connexionViewController">
             <connections>
                 <outlet property="ErrorMessage" destination="kcU-3O-xFe" id="kpm-11-Lcc"/>
+                <outlet property="activityIndicator" destination="Ij3-cT-k6e" id="Ga6-Wc-cPB"/>
                 <outlet property="connectionButton" destination="kPU-67-LX5" id="8kh-SO-hgs"/>
                 <outlet property="mailField" destination="ytT-6a-nCt" id="1aB-xU-R5e"/>
                 <outlet property="passwordField" destination="qqd-8I-LZY" id="UDk-Xa-2bK"/>
@@ -65,6 +66,10 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Ij3-cT-k6e">
+                    <rect key="frame" x="150" y="474" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="353" y="330"/>

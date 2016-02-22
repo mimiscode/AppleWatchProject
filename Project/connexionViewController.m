@@ -13,6 +13,8 @@
 
 @interface connexionViewController ()
 
+
+
 @end
 
 @implementation connexionViewController
@@ -21,6 +23,7 @@
     [super viewDidLoad];
 
     [self.view endEditing:YES];
+    [self.activityIndicator setHidden:true];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +42,11 @@
 
 - (IBAction)onConnexionTouch:(id)sender {
     
+    self.mailField.enabled = NO;
+    self.passwordField.enabled = NO;
+    [self.activityIndicator setHidden:false];
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+    
     NSString* userMail = self.mailField.text;
     NSString* userPassword = self.passwordField.text;
     
@@ -50,7 +58,10 @@
         else{
             [self displayConnexionErrorMessage];
         }
-        
+        self.mailField.enabled = YES;
+        self.passwordField.enabled = YES;
+        [self.activityIndicator setHidden:true];
+        [self stopLoading];
             
     }];
     
@@ -70,6 +81,15 @@
         [self.ErrorMessage setHidden:false];
     });
     
+}
+
+
+-(void) stopLoading{
+    [self.activityIndicator stopAnimating];
+}
+
+- (void) threadStartAnimating {
+    [self.activityIndicator startAnimating];
 }
 
 /*
