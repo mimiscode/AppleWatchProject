@@ -10,6 +10,6 @@
 
 @interface calendarWebService : NSObject
 
-+(NSData*) getCalendar;
++(void) getCalendarWithCompletionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))completionHandler;
 
 @end

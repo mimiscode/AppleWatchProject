@@ -34,7 +34,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *rappel7;
 
 
+-(void)initializeCalendar;
 
+-(void)setButtonsInformation;
 
 
 

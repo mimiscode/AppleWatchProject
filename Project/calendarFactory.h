@@ -11,14 +11,14 @@
 
 @interface calendarFactory : NSObject
 
-+(NSArray*) getCalendar;
-
 +(NSArray*) getCalendarTest;
 
-+(NSArray*) formatEventsWithCalendar:(NSArray*) calendar;
++(NSArray*) formatEventsWithCalendar:(NSDictionary*) calendar;
 
 +(NSArray*) getSixNextDaysEventsWithCalendar:(NSArray*)calendar;
 
 +(NSArray*) getSixNextDaysDate;
+
++(void) getCalendarWithCompletionHandler:(void (^)(NSArray* calendar))completionHandler;
 
 @end

@@ -45,10 +45,27 @@
     [self.day7 setTitle:nextDays[6] forState:UIControlStateNormal];
     
     
-    //Get Calendar
+    [self initializeCalendar];
     
-     self.calendarArray = [calendarFactory getCalendar];
-    id testCalendar = [calendarFactory getCalendar];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+-(void)initializeCalendar{
+    
+    [calendarFactory getCalendarWithCompletionHandler:^(NSArray* calendar) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.calendarArray = calendar;
+            [self setButtonsInformation];
+        });
+    }];
+}
+
+-(void)setButtonsInformation{
     
     if([self.calendarArray[0] count]){
         [self.rappel1 setText:[NSString stringWithFormat:@"%lu rappels",(unsigned long)[self.calendarArray[0] count]]];
@@ -59,7 +76,7 @@
     }
     
     if([self.calendarArray[1] count])
-    [self.rappel2 setText:[NSString stringWithFormat:@"%lu rappels",(unsigned long)[self.calendarArray[1] count]]];
+        [self.rappel2 setText:[NSString stringWithFormat:@"%lu rappels",(unsigned long)[self.calendarArray[1] count]]];
     else{
         [self.rappel2 setHidden:true];
         [self.day2 setBackgroundColor:[UIColor grayColor]];
@@ -67,7 +84,7 @@
     }
     
     if([self.calendarArray[2] count])
-    [self.rappel3 setText:[NSString stringWithFormat:@"%lu rappels",(unsigned long)[self.calendarArray[2] count]]];
+        [self.rappel3 setText:[NSString stringWithFormat:@"%lu rappels",(unsigned long)[self.calendarArray[2] count]]];
     else{
         [self.rappel3 setHidden:true];
         [self.day3 setBackgroundColor:[UIColor grayColor]];
@@ -105,13 +122,6 @@
         [self.day7 setBackgroundColor:[UIColor grayColor]];
         self.day7.enabled = NO;
     }
-    
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)onTouchFirstDay:(id)sender {

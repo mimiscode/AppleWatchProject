@@ -15,32 +15,34 @@
 
 @implementation calendarFactory
 
-+(NSArray*) getCalendar{
++(void) getCalendarWithCompletionHandler :(void (^)(NSArray* calendar))myCompletion{
     
-    NSData *JSONData = [NSData new];
-    
-    /*Mock datas*/
-    if(MOCK_MODE){
-        JSONData = [calendarMockWebService getCalendar];
-    }
-    
-    else{
-        /*Real datas*/
-        JSONData = [calendarWebService getCalendar];
-    }
-   
-    if(!JSONData){
-        return nil;
-    }
-    
-    
-    NSArray* result = [NSArray new];
-    result = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
-    
-    result = [self formatEventsWithCalendar:result];
-    result = [self getSixNextDaysEventsWithCalendar:result];
-    
-    return result;
+        [calendarWebService getCalendarWithCompletionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
+            
+            if(!error){
+                NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                         options:0
+                                                                           error:NULL];
+                
+                
+                int code = [[jsonDict valueForKey:@"code"] intValue];
+                
+                if(code == 0){
+                    NSDictionary* jsonCalendar = [jsonDict objectForKey:@"object"];
+                    NSArray* calendar  = [self formatEventsWithCalendar:jsonCalendar];
+                    calendar = [self getSixNextDaysEventsWithCalendar:calendar];
+                    myCompletion(calendar);
+                }
+                else{
+                    myCompletion(nil);
+                }
+            }
+            else{
+                NSLog(@"Get calendar failed.");
+                myCompletion(nil);
+            }
+            
+        }];
 }
 
 +(NSArray*) getCalendarTest{
@@ -65,7 +67,7 @@
 
 
 
-+(NSArray*) formatEventsWithCalendar:(NSArray*) calendar{
++(NSArray*) formatEventsWithCalendar:(NSDictionary*) calendar{
     NSLog(@"test 1");
     NSMutableArray* result = [NSMutableArray new];
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
