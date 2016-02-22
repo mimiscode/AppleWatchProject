@@ -10,6 +10,6 @@
 
 @interface doctorWebService : NSObject
 
-+(NSData*) getDoctors;
++(void) getDoctorsWithCompletionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))completionHandler;
 
 @end

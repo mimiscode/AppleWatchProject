@@ -12,10 +12,8 @@
 
 @interface doctorFactory : NSObject
 
-+(NSArray*) getDoctors;
++(void) getDoctorsWithCompletionHandler:(void (^)(NSArray* doctors))completionHandler;
 
-+(Doctor*) getDoctorWithId:(int)idd;
-
-+(NSArray*) formatDoctorsWithDoctors:(NSArray*)doctors;
++(NSArray*) formatDoctorsWithJSON:(NSArray*)doctors;
 
 @end

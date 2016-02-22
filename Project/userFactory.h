@@ -16,9 +16,9 @@
 
 +(void) connexionWithMail:(NSString*)mail andPassword:(NSString*)password completionHandler:(void (^)(User* user))completionHandler;
 
-
 +(void) subscribeWithMail:(NSString*)mail andFirstname:(NSString*)firstname andName:(NSString*)name andPassword:(NSString*)password completionHandler:(void (^)(User* user))completionHandler;
 
++(void) updateUser:(User*)user completionHandler:(void (^)(User* user))completionHandler;
 
 +(User*) formatUserWithJSON:(NSDictionary*) jsonDict;
 

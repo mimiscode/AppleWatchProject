@@ -41,7 +41,7 @@
 - (IBAction)onDoctorTouch:(id)sender {
     
     DoctorViewController* doctorViewController = [DoctorViewController new];
-    
+    doctorViewController.user = self.user;
     [self.navigationController pushViewController:doctorViewController animated:NO];
     
 

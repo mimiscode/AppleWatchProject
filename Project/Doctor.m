@@ -17,7 +17,7 @@
 @synthesize phone = phone_;
 @synthesize mail = mail_;
 
--(Doctor*)initDoctorWithId:(int)idd andFirstname:(NSString*)firstname andLastname:(NSString*)lastname andAddress:(NSString*)address andPhone:(NSString*)phone andMail:(NSString*)mail{
+-(Doctor*)initDoctorWithId:(NSString*)idd andFirstname:(NSString*)firstname andLastname:(NSString*)lastname andAddress:(NSString*)address andPhone:(NSString*)phone andMail:(NSString*)mail{
     
     self = [super init];
     self.idd = idd;

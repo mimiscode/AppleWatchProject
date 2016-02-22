@@ -10,7 +10,7 @@
 
 @interface Doctor : NSObject{
 @private
-    int idd_;
+    NSString* idd_;
     NSString* firstname_;
     NSString* lastname_;
     NSString* address_;
@@ -19,7 +19,7 @@
     
 }
 
-@property (nonatomic,assign)int idd;
+@property (nonatomic,strong)NSString* idd;
 @property (nonatomic,strong)NSString* firstname;
 @property (nonatomic,strong)NSString* lastname;
 @property (nonatomic,strong)NSString* address;
@@ -27,6 +27,6 @@
 @property (nonatomic,strong)NSString* mail;
 
 
--(Doctor*)initDoctorWithId:(int)idd andFirstname:(NSString*)firstname andLastname:(NSString*)lastname andAddress:(NSString*)address andPhone:(NSString*)phone andMail:(NSString*)mail;
+-(Doctor*)initDoctorWithId:(NSString*)idd andFirstname:(NSString*)firstname andLastname:(NSString*)lastname andAddress:(NSString*)address andPhone:(NSString*)phone andMail:(NSString*)mail;
 
 @end

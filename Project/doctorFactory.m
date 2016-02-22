@@ -14,66 +14,54 @@
 @implementation doctorFactory
 
 
-+(NSArray*) getDoctors{
-    
-    
-    NSData *JSONData = [NSData new];
-    
-    /*Mock datas*/
-    if(MOCK_MODE){
-    JSONData = [doctorMockWebService getDoctors];
-    }
-    
-    /*Real datas*/
-    else{
-        JSONData = [doctorWebService getDoctors];
-    }
-    
-    if(!JSONData){
-        return nil;
-    }
-    
-    NSArray* result = [NSMutableArray new];
-    result = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
-    
-    
-    result = [self formatDoctorsWithDoctors:result];
-    
-    
-    return result;
-}
 
-+(Doctor*) getDoctorWithId:(int)idd{
+
++(void) getDoctorsWithCompletionHandler:(void (^)(NSArray* doctors))myCompletion{
     
-    NSArray* doctorsArray = [NSArray new];
-    doctorsArray = [self getDoctors];
     
-    if(!doctorsArray){
-        return nil;
-    }
-    
-    for(Doctor* doctor in doctorsArray){
-        if([doctor idd] == idd){
-            return doctor;
+    [doctorWebService getDoctorsWithCompletionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
+        
+        if(!error){
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:0
+                                                                       error:NULL];
+        
+            
+            int code = [[jsonDict valueForKey:@"code"] intValue];
+            
+            if(code == 0){
+               NSDictionary* jsonDoctors = [jsonDict objectForKey:@"object"];
+                 NSArray* doctors  = [self formatDoctorsWithJSON:jsonDoctors];
+                myCompletion(doctors);
+            }
+            else{
+                myCompletion(nil);
+            }
         }
+        else{
+            NSLog(@"Connexion failed.");
+            myCompletion(nil);
+        }
+        
+    }];
     
-    }
-    return nil;
+    
 }
 
-+(NSArray*) formatDoctorsWithDoctors:(NSArray*)doctors{
++(NSArray*) formatDoctorsWithJSON:(NSDictionary*)doctors{
     
     NSMutableArray* result = [NSMutableArray new];
     
-    if (doctors!=nil)
+    if (doctors==nil){
+        return nil;
+    }
+    else
     {
         for(NSObject* obj in doctors){
             
-            NSLog(@"obj=%@", obj);
             Doctor* doctor = [Doctor new];
             
-            
-            doctor = [doctor initDoctorWithId:[[obj valueForKey:@"idd"] intValue]
+            doctor = [doctor initDoctorWithId:[obj valueForKey:@"_id"]
                                 andFirstname:[obj valueForKey:@"firstname"]
                                 andLastname:[obj valueForKey:@"lastname"]
                                 andAddress:[obj valueForKey:@"address"]
@@ -91,11 +79,6 @@
         return result;
         
     }
-    else
-        NSLog(@"%@", doctors);
-
-    
-    return nil;
 }
 
 

@@ -106,9 +106,40 @@
         }
         
     }];
-
-    
 }
+
++(void) updateUser:(User*)user completionHandler:(void (^)(User* user))myCompletion{
+    
+    [userWebService updateUser:user completionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
+        
+        User* updatedUser = [User new];
+        
+        if(!error){
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:0
+                                                                       error:NULL];
+            
+            int code = [[jsonDict valueForKey:@"code"] intValue];
+            
+            if(code == 0){
+                NSDictionary* jsonUser = [jsonDict objectForKey:@"object"];
+                updatedUser = [self formatUserWithJSON:jsonUser];
+                myCompletion(updatedUser);
+            }
+            else{
+                myCompletion(nil);
+            }
+        }
+        else{
+            NSLog(@"Update user failed.");
+            myCompletion(nil);
+        }
+        
+    }];
+
+}
+
+
 +(User*) formatUserWithJSON:(NSDictionary*) jsonUser{
     
     if(jsonUser == nil){
@@ -117,12 +148,12 @@
     else{
         
     User* user = [User new];
-    user = [user initUserWithId:[[jsonUser valueForKey:@"idd"] intValue]
+    user = [user initUserWithId:[jsonUser valueForKey:@"_id"]
                    andFirstname:[jsonUser valueForKey:@"firstname"]
                     andLastname:[jsonUser valueForKey:@"lastname"]
                     andPassword:[jsonUser valueForKey:@"password"]
                         andMail:[jsonUser valueForKey:@"mail"]
-                   andDoctorIdd:[[jsonUser valueForKey:@"doctorIdd"] intValue]
+                   andDoctorIdd:[jsonUser valueForKey:@"doctorId"]
             ];
     return user;
     }
@@ -140,12 +171,12 @@
             User* user = [User new];
             
             
-            user = [user initUserWithId:[[obj valueForKey:@"idd"] intValue]
+            user = [user initUserWithId:[obj valueForKey:@"idd"]
                                  andFirstname:[obj valueForKey:@"firstname"]
                                   andLastname:[obj valueForKey:@"lastname"]
                                    andPassword:[obj valueForKey:@"password"]
                                      andMail:[obj valueForKey:@"mail"]
-                                    andDoctorIdd:[[obj valueForKey:@"doctorIdd"] intValue]
+                                    andDoctorIdd:[obj valueForKey:@"doctorIdd"]
                       ];
             
             [result addObject:user];

@@ -72,9 +72,14 @@
 
 -(void) displaySubscribeErrorMessage{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.errorMessage setHidden:false];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur"
+                                                        message:@"Une erreure est survenue. Votre compte n'a pas été créé."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
     });
-    
 }
 
 /*

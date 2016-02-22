@@ -8,6 +8,7 @@
 
 #import "DoctorViewController.h"
 #import "doctorFactory.h"
+#import "userFactory.h"
 #import "Doctor.h"
 
 @interface DoctorViewController ()
@@ -34,20 +35,14 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
     
     self.doctorsListView.delegate = self;
     self.doctorsListView.dataSource = self;
+    self.doctorsToDisplay = nil;
+    self.allDoctors = nil;
+    
+    [self initializeDoctorsList];
     
     self.searchBar.delegate = self;
     
-    self.userDoctor = [doctorFactory getDoctorWithId:[self.user doctorIdd]];
     
-    [self.doctorNameLabel setText:[NSString stringWithFormat:@"Dr. %@ %@", self.userDoctor.firstname, self.userDoctor.lastname]];
-    [self.doctorAddressLabel setText:self.userDoctor.address];
-    [self.doctorPhoneLabel setText:self.userDoctor.phone];
-    [self.doctorMailLabel setText:self.userDoctor.mail];
-    
-    self.allDoctors = [doctorFactory getDoctors];
-    self.doctorsToDisplay = self.allDoctors;
-    NSLog(@" user doc name : %@", self.userDoctor.firstname);
-    [self.doctorsListView reloadData];
     
 }
 
@@ -58,6 +53,43 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
 }
 
 
+-(void) initializeDoctorsList{
+    [doctorFactory getDoctorsWithCompletionHandler:^(NSArray* doctors) {
+        self.allDoctors = doctors;
+        self.doctorsToDisplay = doctors;
+        dispatch_async(dispatch_get_main_queue(), ^{
+        [self.doctorsListView reloadData];
+        
+        self.userDoctor = [self getDoctorById:self.user.doctorIdd inDoctors:self.allDoctors];
+        
+            if(self.userDoctor != nil){
+                [self.doctorNameLabel setText:[NSString stringWithFormat:@"Dr. %@ %@", self.userDoctor.firstname, self.userDoctor.lastname]];
+                [self.doctorAddressLabel setText:self.userDoctor.address];
+                [self.doctorPhoneLabel setText:self.userDoctor.phone];
+                [self.doctorMailLabel setText:self.userDoctor.mail];
+                [self.errorMessage setHidden:true];
+            }
+            else{
+                [self.errorMessage setHidden:false];
+            }
+        
+        });
+        
+    }];
+    
+
+}
+
+-(Doctor*) getDoctorById:(NSString*)idd inDoctors:(NSArray*)doctors{
+    
+    for(int i=0; i<[doctors count]; i++){
+        Doctor* currentDoctor = [doctors objectAtIndex:i];
+        if([currentDoctor.idd isEqualToString:idd]){
+            return [doctors objectAtIndex:i];
+        }
+    }
+    return nil;
+}
 
 -(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section{
         return [self.doctorsToDisplay count];
@@ -101,11 +133,24 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UIAlertAction* validAction = [UIAlertAction actionWithTitle:@"Confirmer" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
-                                                               self.userDoctor = self.selectedDoctor;
-                                                              [self.doctorNameLabel setText:[NSString stringWithFormat:@"Dr. %@ %@", self.selectedDoctor.firstname, self.selectedDoctor.lastname]];
-                                                              [self.doctorAddressLabel setText:self.selectedDoctor.address];
-                                                              [self.doctorPhoneLabel setText:self.selectedDoctor.phone];
-                                                              [self.doctorMailLabel setText:self.selectedDoctor.mail];
+                                                               self.user.doctorIdd = self.selectedDoctor.idd;
+                                                              [userFactory updateUser:self.user completionHandler:^(User* user) {
+                                                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                                                      self.user = user;
+                                                                      self.userDoctor = [self getDoctorById:self.user.doctorIdd inDoctors:self.allDoctors];
+                                                                      if(self.userDoctor != nil){
+                                                                    [self.doctorNameLabel setText:[NSString stringWithFormat:@"Dr. %@ %@", self.userDoctor.firstname, self.userDoctor.lastname]];
+                                                                      [self.doctorAddressLabel setText:self.userDoctor.address];
+                                                                      [self.doctorPhoneLabel setText:self.userDoctor.phone];
+                                                                      [self.doctorMailLabel setText:self.userDoctor.mail];
+                                                                          [self.errorMessage setHidden:true];
+                                                                      }
+                                                                      else{
+                                                                          [self.errorMessage setHidden:false];
+                                                                      }
+                                                                  });
+                                                                  
+                                                              }];
                                                           }];
     
     

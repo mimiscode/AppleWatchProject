@@ -18,15 +18,18 @@
     NSArray* allDoctors_;
     NSArray* doctorsToDisplay_;
 }
+-(Doctor*) getDoctorById:(NSString*)idd inDoctors:(NSArray*)doctors;
 
 -(NSArray*)searchFilterWithValue:(NSString*)searchValue inDoctors:(NSArray*)doctors;
 
+-(void) initializeDoctorsList;
 
 @property(nonatomic, strong)User* user;
 @property(nonatomic, strong)Doctor* userDoctor;
 @property(nonatomic, strong)Doctor* selectedDoctor;
 @property(nonatomic, strong)NSArray* allDoctors;
 @property(nonatomic, strong)NSArray* doctorsToDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *errorMessage;
 
 @property (weak, nonatomic) IBOutlet UILabel *doctorNameLabel;
 

@@ -18,7 +18,7 @@
 @synthesize mail = mail_;
 @synthesize doctorIdd = doctorIdd_;
 
--(User*)initUserWithId:(int)idd andFirstname:(NSString*)firstname andLastname:(NSString*)lastname andPassword:(NSString*)password andMail:(NSString*)mail andDoctorIdd:(int)doctorIdd{
+-(User*)initUserWithId:(NSString*)idd andFirstname:(NSString*)firstname andLastname:(NSString*)lastname andPassword:(NSString*)password andMail:(NSString*)mail andDoctorIdd:(NSString*)doctorIdd{
     
     self = [super init];
     self.idd = idd;
