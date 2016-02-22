@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubscribeViewController">
             <connections>
+                <outlet property="activityIndicator" destination="csi-WW-l5h" id="mNw-qe-h5T"/>
                 <outlet property="errorMessage" destination="Uwy-fD-aS8" id="VmV-Hn-0Q9"/>
                 <outlet property="userFirstname" destination="wIc-mn-ocX" id="K91-jM-RH7"/>
                 <outlet property="userMail" destination="k1B-Yb-wXZ" id="IVj-ex-s7r"/>
@@ -79,6 +80,10 @@
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="csi-WW-l5h">
+                            <rect key="frame" x="150" y="483" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>

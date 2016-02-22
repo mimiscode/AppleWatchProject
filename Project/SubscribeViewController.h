@@ -15,9 +15,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *userFirstname;
 @property (weak, nonatomic) IBOutlet UITextField *userPassword;
 @property (weak, nonatomic) IBOutlet UILabel *errorMessage;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 -(void) goToMenuViewWithUser:(User*)user;
 
 -(void) displaySubscribeErrorMessage;
+
+-(void)threadStartAnimating;
 
 @end

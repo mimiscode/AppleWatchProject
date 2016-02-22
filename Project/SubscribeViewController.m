@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self.activityIndicator setHidden:true];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,6 +31,15 @@
     NSString* firstname = self.userFirstname.text;
     NSString* name = self.userName.text;
     NSString* password = self.userPassword.text;
+    
+    self.userMail.enabled = NO;
+    self.userPassword.enabled = NO;
+    self.userFirstname.enabled = NO;
+    self.userName.enabled = NO;
+    
+    [self.activityIndicator setHidden:false];
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+    
     
     if([mail isEqualToString:@""]
        || [firstname isEqualToString:@""]
@@ -48,6 +57,14 @@
             else{
                 [self displaySubscribeErrorMessage];
             }
+            
+            self.userMail.enabled = YES;
+            self.userPassword.enabled = YES;
+            self.userFirstname.enabled = YES;
+            self.userName.enabled = YES;
+            
+            [self.activityIndicator stopAnimating];
+            [self.activityIndicator setHidden:true];
         }];
     }
 }
@@ -82,14 +99,9 @@
     });
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)threadStartAnimating{
+    [self.activityIndicator startAnimating];
 }
-*/
+
 
 @end
