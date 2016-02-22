@@ -23,6 +23,7 @@
 -(NSArray*)searchFilterWithValue:(NSString*)searchValue inDoctors:(NSArray*)doctors;
 
 -(void) initializeDoctorsList;
+-(void)threadStartAnimating;
 
 @property(nonatomic, strong)User* user;
 @property(nonatomic, strong)Doctor* userDoctor;
@@ -40,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *doctorsListView;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 

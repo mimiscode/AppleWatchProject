@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DoctorViewController">
             <connections>
+                <outlet property="activityIndicator" destination="dVq-lJ-LTK" id="OOv-RW-sTI"/>
                 <outlet property="doctorAddressLabel" destination="Bqh-BY-EhL" id="gRK-VL-N6n"/>
                 <outlet property="doctorMailLabel" destination="yUV-3C-hex" id="3Hg-NZ-TEa"/>
                 <outlet property="doctorNameLabel" destination="92l-ML-LLK" id="ooW-Nv-JKU"/>
@@ -86,6 +87,10 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="dVq-lJ-LTK">
+                    <rect key="frame" x="150" y="242" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="116" y="313"/>

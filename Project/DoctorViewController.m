@@ -54,6 +54,9 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
 
 
 -(void) initializeDoctorsList{
+    [self.activityIndicator setHidden:false];
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+    
     [doctorFactory getDoctorsWithCompletionHandler:^(NSArray* doctors) {
         self.allDoctors = doctors;
         self.doctorsToDisplay = doctors;
@@ -72,7 +75,9 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
             else{
                 [self.errorMessage setHidden:false];
             }
-        
+            
+            [self.activityIndicator setHidden:true];
+            [self.activityIndicator stopAnimating];
         });
         
     }];
@@ -237,19 +242,7 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
  
  */
-
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"loggg111");
-    
-    switch(buttonIndex) {
-        case 1:
-            if([[alertView buttonTitleAtIndex:1] isEqualToString:@"Valider"]){
-                NSLog(@"loggg");
-            }
-            break;
-    }
+-(void)threadStartAnimating{
+    [self.activityIndicator startAnimating];
 }
-
 @end
