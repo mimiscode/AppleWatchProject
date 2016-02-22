@@ -32,15 +32,6 @@
     NSString* name = self.userName.text;
     NSString* password = self.userPassword.text;
     
-    self.userMail.enabled = NO;
-    self.userPassword.enabled = NO;
-    self.userFirstname.enabled = NO;
-    self.userName.enabled = NO;
-    
-    [self.activityIndicator setHidden:false];
-    [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
-    
-    
     if([mail isEqualToString:@""]
        || [firstname isEqualToString:@""]
        || [name isEqualToString:@""]
@@ -48,6 +39,15 @@
         [self.errorMessage setHidden:false];
     }
     else{
+        [self.errorMessage setHidden:true];
+        [self.activityIndicator setHidden:false];
+        [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+        
+        self.userMail.enabled = NO;
+        self.userPassword.enabled = NO;
+        self.userFirstname.enabled = NO;
+        self.userName.enabled = NO;
+        
         
         [userFactory subscribeWithMail:mail andFirstname:firstname andName:name andPassword:password completionHandler:^(User* user) {
             
@@ -63,10 +63,9 @@
             self.userFirstname.enabled = YES;
             self.userName.enabled = YES;
             
-            [self.activityIndicator stopAnimating];
-            [self.activityIndicator setHidden:true];
         }];
     }
+    
 }
 
 
