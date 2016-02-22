@@ -139,6 +139,13 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UIAlertAction* validAction = [UIAlertAction actionWithTitle:@"Confirmer" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                                self.user.doctorIdd = self.selectedDoctor.idd;
+                                                              self.doctorAddressLabel.text = @"";
+                                                              self.doctorMailLabel.text = @"";
+                                                              self.doctorNameLabel.text = @"";
+                                                              self.doctorPhoneLabel.text = @"";
+                                                              [self.activityIndicator setHidden:false];
+                                                              [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+                                                              
                                                               [userFactory updateUser:self.user completionHandler:^(User* user) {
                                                                   dispatch_async(dispatch_get_main_queue(), ^{
                                                                       self.user = user;
@@ -153,6 +160,9 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
                                                                       else{
                                                                           [self.errorMessage setHidden:false];
                                                                       }
+                                                                      
+                                                                      [self.activityIndicator stopAnimating];
+                                                                      [self.activityIndicator setHidden:true];
                                                                   });
                                                                   
                                                               }];
