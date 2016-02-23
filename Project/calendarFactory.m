@@ -84,7 +84,8 @@
                                       andState:[[obj valueForKey:@"state"] intValue]
                                        andDate:[dateFormatter dateFromString:[obj valueForKey:@"date"]]
                           andNumberMedications:[[obj valueForKey:@"numberMedications"] intValue]
-                                 andMedication:[obj valueForKey:@"medication"]];
+                                 andMedication:[obj valueForKey:@"medication"]
+                                      andAlarm:[obj valueForKey:@"alarm"]];
                 
                 [result addObject:event];
             }

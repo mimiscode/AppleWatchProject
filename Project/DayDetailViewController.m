@@ -85,8 +85,14 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
     cell.accessoryView = switchView;
-    [switchView setOn:YES animated:YES];
-    //[switchView addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
+    if([event.alarm isEqualToString:@"0"]){
+        [switchView setOn:NO animated:YES];
+    }
+    else{
+        [switchView setOn:YES animated:YES];
+    }
+    
+    [switchView addTarget:self action:@selector(switchToggled:)forControlEvents:UIControlEventValueChanged];
     
     
         [cell.contentView addSubview:eventHour];
@@ -110,19 +116,65 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     return nil;
 }
 
-- (IBAction)onAddEventTouch:(id)sender {
-    
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Bientôt disponible"
-                                                                   message:@"Cette fonctionnalité sera disponible dans la version 2.0 de l'application."
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Fermer" style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * action) {                   }];
-    
-    [alert addAction:cancelAction];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+- (void) switchToggled:(id)sender {
+    UISwitch *mySwitch = (UISwitch *)sender;
+    UITableViewCell * cell = (UITableViewCell*) mySwitch.superview;
+    NSIndexPath * indexpath = [self.dayEventsTableView indexPathForCell:cell];
+    Event* selectedEvent = [self.dayEvents objectAtIndex:indexpath.row];
+    if ([mySwitch isOn]) {
+        
+        Medication* currentMedication = [self getMedicationById:selectedEvent.medication];
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = selectedEvent.date;
+        localNotification.alertTitle = @"Prise de médicament";
+        localNotification.alertBody = [NSString stringWithFormat:@"Veuillez prendre %d pillules de %@", selectedEvent.numberMedications, currentMedication.label];
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.applicationIconBadgeNumber = 1;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
+                                                                       message:@"Alarme activée"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Fermer" style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * action) {                   }];
+        
+        [alert addAction:cancelAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+
+    }
+    else {
+        NSMutableArray *Arr=[[NSMutableArray alloc] initWithArray:[[UIApplication sharedApplication]scheduledLocalNotifications]];
+        for (int k=0;k<[Arr count];k++) {
+            UILocalNotification *not=[Arr objectAtIndex:k];
+            NSString *DateString=[NSString stringWithFormat:@"%@", [not valueForKey:@"fireDate"]];
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+            [dateFormatter setTimeZone:timeZone];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            
+            NSString* eventDateString = [NSString stringWithFormat:@"%@ +0000", [dateFormatter stringFromDate:selectedEvent.date]];
+            if([DateString isEqualToString:eventDateString])
+            {
+                [[UIApplication sharedApplication] cancelLocalNotification:not];
+            }
+        }
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
+                                                                       message:@"Alarme desactivée"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Fermer" style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * action) {                   }];
+        
+        [alert addAction:cancelAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
 }
+
 - (IBAction)onInformationsTouch:(id)sender {
     
     

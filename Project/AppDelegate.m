@@ -42,7 +42,7 @@
 - (void)application:(UIApplication *)application
 didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Nouvelle prise de pilule" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Prise de médicaments" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
     
     if ([WCSession defaultSession].reachable) {

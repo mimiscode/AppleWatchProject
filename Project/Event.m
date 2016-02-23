@@ -15,9 +15,10 @@
 @synthesize date = date_;
 @synthesize numberMedications = numberMedications_;
 @synthesize state = state_;
+@synthesize alarm = alarm_;
 
 
--(Event*)initEventWithId:(NSString*)idd andState:(int)state andDate:(NSDate*)date andNumberMedications:(int) numberMedications andMedication:(NSString*) medication{
+-(Event*)initEventWithId:(NSString*)idd andState:(int)state andDate:(NSDate*)date andNumberMedications:(int) numberMedications andMedication:(NSString*) medication andAlarm:(NSString*) alarm{
     
     self = [super init];
     self.idd = idd;
@@ -25,7 +26,7 @@
     self.date = date;
     self.numberMedications  = numberMedications;
     self.medication = medication;
-    
+    self.alarm = alarm;
     return self;
 }
 
