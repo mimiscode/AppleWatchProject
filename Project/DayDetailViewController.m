@@ -19,6 +19,8 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
 
 @implementation DayDetailViewController
 @synthesize dayEvents =dayEvents_;
+@synthesize medications = medications_;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,9 +29,7 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
     self.dayEventsTableView.delegate = self;
     self.dayEventsTableView.dataSource = self;
     
-    
-    NSLog(@"events : %@", self.dayEvents);
-    
+    [self initializeMedications];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +38,14 @@ static NSString* const kHomeViewControllerCellIdentifier=@"SuperUniqueKey";
 }
 
 
+-(void) initializeMedications{
+    [medicationFactory getMedicationsWithCompletionHandler:^(NSArray* medications) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             self.medications = medications;
+             [self.dayEventsTableView reloadData];
+         });
+    }];
+}
 
 -(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.dayEvents count];
@@ -49,7 +57,7 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     Event* event = [Event new];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kHomeViewControllerCellIdentifier];
     event = [self.dayEvents objectAtIndex:indexPath.row];
-    Medication* medication = [medicationFactory getMedicationWithId:event.medication];
+    Medication* medication = [self getMedicationById:event.medication];
     
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
    
@@ -90,6 +98,18 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return cell;
 }
+
+
+-(Medication*) getMedicationById:(NSString*)medicationId{
+    
+    for(Medication* medication in self.medications){
+        if([[medication idd]  isEqualToString:medicationId]){
+            return medication;
+        }
+    }
+    return nil;
+}
+
 - (IBAction)onAddEventTouch:(id)sender {
     
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Bientôt disponible"

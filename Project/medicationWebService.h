@@ -10,6 +10,6 @@
 
 @interface medicationWebService : NSObject
 
-+(NSData*) getMedications;
++(void) getMedicationsWithCompletionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))completionHandler;
 
 @end

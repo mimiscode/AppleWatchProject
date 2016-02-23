@@ -10,15 +10,21 @@
 
 @implementation medicationWebService
 
-+(NSData*) getMedications{
++(void) getMedicationsWithCompletionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))myCompletion{
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"medicationMocks.JSON" ofType:nil];
+    NSURL *url = [NSURL URLWithString:@"https://applewatchproject.herokuapp.com/medications"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
-    NSError *error = nil;
+    [request setHTTPMethod:@"GET"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSData *JSONData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:&error];
     
-    return JSONData;
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+        myCompletion(data, response, error);
+    }];
+    
+    [dataTask resume];
     
 }
 

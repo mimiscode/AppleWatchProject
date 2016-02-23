@@ -12,10 +12,8 @@
 
 @interface medicationFactory : NSObject
 
-+(NSArray*) getMedications;
++(void) getMedicationsWithCompletionHandler:(void (^)(NSArray* medications))completionHandler;
 
-+(Medication*) getMedicationWithId:(int)idd;
-
-+(NSArray*) formatMedicationsWithMedications:(NSArray*)medications;
++(NSArray*) formatMedicationsWithJson:(NSDictionary*)medications;
 
 @end

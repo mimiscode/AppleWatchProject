@@ -68,49 +68,35 @@
 
 
 +(NSArray*) formatEventsWithCalendar:(NSDictionary*) calendar{
-    NSLog(@"test 1");
-    NSMutableArray* result = [NSMutableArray new];
-    NSDateFormatter* dateFormatter = [NSDateFormatter new];
-    NSArray* medicationList = [medicationFactory getMedications];
-    Medication* medication = [Medication new];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
     
-    
-    if (calendar!=nil)
-    {       NSLog(@" taille : %lu",(unsigned long)[medicationList count]);
+        NSMutableArray* result = [NSMutableArray new];
+        NSDateFormatter* dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
         
+        if (calendar!=nil)
+        {
             for(Event* obj in calendar){
-                /*for(medication in medicationList){
-                    if([medication idd] == [[obj valueForKey:@"medication"]intValue])
-                        [obj setMedication:medication];
-                }
-             */
                 
                 NSLog(@"obj=%@", obj);
                 Event* event = [Event new];
                 
                 event = [event initEventWithId:[obj valueForKey:@"_id"]
-                                         andState:[[obj valueForKey:@"state"] intValue]
-                                     andDate:[dateFormatter dateFromString:[obj valueForKey:@"date"]]
+                                      andState:[[obj valueForKey:@"state"] intValue]
+                                       andDate:[dateFormatter dateFromString:[obj valueForKey:@"date"]]
                           andNumberMedications:[[obj valueForKey:@"numberMedications"] intValue]
-                                 andMedication:[obj valueForKey:@"medication"]]
-                          ;
+                                 andMedication:[obj valueForKey:@"medication"]];
                 
                 [result addObject:event];
             }
             
-            
-        /* for(Event* event in result){
-                NSLog(@"id -> %d",event.idd);
-            }
-         */
             return result;
-        
+            
         }
-        else
-            NSLog(@"%@", calendar);
-        
-    return nil;
+        else{
+             NSLog(@"%@", calendar);
+        }
+    
+     return nil;
 }
 
 

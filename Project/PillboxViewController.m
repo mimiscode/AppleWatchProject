@@ -147,7 +147,7 @@
 - (IBAction)onTouchThirdDay:(id)sender {
     DayDetailViewController* dayDetail3 = [DayDetailViewController new];
     dayDetail3.dayEvents = self.calendarArray[2];
-    [self.navigationController pushViewController:dayDetail3 animated:YES]; 
+    [self.navigationController pushViewController:dayDetail3 animated:YES];
 }
 
 - (IBAction)onTouchFourthDay:(id)sender {

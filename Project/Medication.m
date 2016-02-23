@@ -15,7 +15,7 @@
 @synthesize description = description_;
 @synthesize carIndication = carIndication_;
 
--(Medication*)initMedicationWithId:(int)idd andLabel:(NSString*)label andDescription:(NSString*)description andCarIndication:(NSString*)carIndication{
+-(Medication*)initMedicationWithId:(NSString*)idd andLabel:(NSString*)label andDescription:(NSString*)description andCarIndication:(NSString*)carIndication{
     
     self = [super init];
     self.idd = idd;

@@ -10,9 +10,12 @@
 
 @interface DayDetailViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>{
     NSArray* dayEvents_;
+    NSArray* medications_;
 }
 
 @property (nonatomic, strong)NSArray* dayEvents;
+
+@property (nonatomic, strong)NSArray* medications;
 
 @property (weak, nonatomic) IBOutlet UITableView *dayEventsTableView;
 

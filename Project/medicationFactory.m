@@ -13,36 +13,40 @@
 
 @implementation medicationFactory
 
-+(NSArray*) getMedications{
+
++(void) getMedicationsWithCompletionHandler:(void (^)(NSArray* medications))myCompletion{
     
-    NSData *JSONData = [NSData new];
     
-    /*Mock datas*/
-    if(MOCK_MODE){
-        JSONData = [medicationMockWebService getMedications];
-        NSLog(@"MEDICATIONJSON %@",JSONData);
-    }
+    [medicationWebService getMedicationsWithCompletionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
+        
+        if(!error){
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:0
+                                                                       error:NULL];
+            
+            
+            int code = [[jsonDict valueForKey:@"code"] intValue];
+            
+            if(code == 0){
+                NSDictionary* jsonMedications = [jsonDict objectForKey:@"object"];
+                NSArray* medications  = [self formatMedicationsWithJson:jsonMedications];
+                myCompletion(medications);
+            }
+            else{
+                myCompletion(nil);
+            }
+        }
+        else{
+            NSLog(@"Connexion failed.");
+            myCompletion(nil);
+        }
+        
+    }];
     
-    /*Real datas*/
-    else{
-        JSONData = [medicationMockWebService getMedications];
-    }
     
-    if(!JSONData){
-        return nil;
-    }
-    
-    NSArray* result = [NSMutableArray new];
-    result = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
-    
-    NSLog(@"Test du resultat : %@",result);
-    
-    result = [self formatMedicationsWithMedications: result];
-    
-    return result;
 }
 
-+(NSArray*) formatMedicationsWithMedications:(NSArray*)medications{
++(NSArray*) formatMedicationsWithJson:(NSDictionary*)medications{
     
     NSMutableArray* result = [NSMutableArray new];
     
@@ -54,7 +58,7 @@
             Medication* medication = [Medication new];
             
             
-            medication = [medication initMedicationWithId:[[obj valueForKey:@"idd"] intValue] andLabel:[obj valueForKey:@"label"] andDescription:[obj valueForKey:@"description"] andCarIndication:[obj valueForKey:@"carIndication"]];
+            medication = [medication initMedicationWithId:[obj valueForKey:@"_id"] andLabel:[obj valueForKey:@"label"] andDescription:[obj valueForKey:@"description"] andCarIndication:[obj valueForKey:@"carIndication"]];
             
             [result addObject:medication];
         }
@@ -73,24 +77,6 @@
     
     return nil;
     
-}
-
-+(Medication*) getMedicationWithId:(int)idd{
-    
-    NSArray* medicationsArray = [NSArray new];
-    medicationsArray = [self getMedications];
-    
-    if(!medicationsArray){
-        return nil;
-    }
-    
-    for(Medication* medication in medicationsArray){
-        if([medication idd] == idd){
-            return medication;
-        }
-        
-    }
-    return nil;
 }
 
 @end
