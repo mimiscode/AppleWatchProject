@@ -89,11 +89,11 @@
                 NSLog(@"obj=%@", obj);
                 Event* event = [Event new];
                 
-                event = [event initEventWithId:[[obj valueForKey:@"idd"] intValue]
+                event = [event initEventWithId:[obj valueForKey:@"_id"]
                                          andState:[[obj valueForKey:@"state"] intValue]
                                      andDate:[dateFormatter dateFromString:[obj valueForKey:@"date"]]
                           andNumberMedications:[[obj valueForKey:@"numberMedications"] intValue]
-                                 andMedication:[[obj valueForKey:@"medication"] intValue]]
+                                 andMedication:[obj valueForKey:@"medication"]]
                           ;
                 
                 [result addObject:event];

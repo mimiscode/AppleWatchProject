@@ -17,7 +17,7 @@
 @synthesize state = state_;
 
 
--(Event*)initEventWithId:(int)idd andState:(int)state andDate:(NSDate*)date andNumberMedications:(int) numberMedications andMedication:(int) medication{
+-(Event*)initEventWithId:(NSString*)idd andState:(int)state andDate:(NSDate*)date andNumberMedications:(int) numberMedications andMedication:(NSString*) medication{
     
     self = [super init];
     self.idd = idd;
