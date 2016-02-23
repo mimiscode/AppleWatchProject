@@ -9,6 +9,7 @@
 #import "DayDetailViewController.h"
 #import "Event.h"
 #import "medicationFactory.h"
+#import "calendarFactory.h"
 
 @interface DayDetailViewController ()
 
@@ -122,56 +123,62 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSIndexPath * indexpath = [self.dayEventsTableView indexPathForCell:cell];
     Event* selectedEvent = [self.dayEvents objectAtIndex:indexpath.row];
     if ([mySwitch isOn]) {
-        
-        Medication* currentMedication = [self getMedicationById:selectedEvent.medication];
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = selectedEvent.date;
-        localNotification.alertTitle = @"Prise de médicament";
-        localNotification.alertBody = [NSString stringWithFormat:@"Veuillez prendre %d pillules de %@", selectedEvent.numberMedications, currentMedication.label];
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-        localNotification.applicationIconBadgeNumber = 1;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
-                                                                       message:@"Alarme activée"
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Fermer" style:UIAlertActionStyleDefault
-                                                             handler:^(UIAlertAction * action) {                   }];
-        
-        [alert addAction:cancelAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-
+        selectedEvent.alarm = @"1";
+        [calendarFactory updateEventWithEvent:selectedEvent andCompletionHandler:^(){
+            Medication* currentMedication = [self getMedicationById:selectedEvent.medication];
+            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+            localNotification.fireDate = selectedEvent.date;
+            localNotification.alertTitle = @"Prise de médicament";
+            localNotification.alertBody = [NSString stringWithFormat:@"Veuillez prendre %d pillules de %@", selectedEvent.numberMedications, currentMedication.label];
+            localNotification.soundName = UILocalNotificationDefaultSoundName;
+            localNotification.applicationIconBadgeNumber = 1;
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
+                                                                           message:@"Alarme activée"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Fermer" style:UIAlertActionStyleDefault
+                                                                 handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:cancelAction];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }];
     }
     else {
-        NSMutableArray *Arr=[[NSMutableArray alloc] initWithArray:[[UIApplication sharedApplication]scheduledLocalNotifications]];
-        for (int k=0;k<[Arr count];k++) {
-            UILocalNotification *not=[Arr objectAtIndex:k];
-            NSString *DateString=[NSString stringWithFormat:@"%@", [not valueForKey:@"fireDate"]];
+        selectedEvent.alarm = @"0";
+        [calendarFactory updateEventWithEvent:selectedEvent andCompletionHandler:^{
             
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-            [dateFormatter setTimeZone:timeZone];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSMutableArray *Arr=[[NSMutableArray alloc] initWithArray:[[UIApplication sharedApplication]scheduledLocalNotifications]];
+                for (int k=0;k<[Arr count];k++) {
+                    UILocalNotification *not=[Arr objectAtIndex:k];
+                    NSString *DateString=[NSString stringWithFormat:@"%@", [not valueForKey:@"fireDate"]];
             
-            NSString* eventDateString = [NSString stringWithFormat:@"%@ +0000", [dateFormatter stringFromDate:selectedEvent.date]];
-            if([DateString isEqualToString:eventDateString])
-            {
-                [[UIApplication sharedApplication] cancelLocalNotification:not];
-            }
-        }
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+                    [dateFormatter setTimeZone:timeZone];
+                    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            
+                    NSString* eventDateString = [NSString stringWithFormat:@"%@ +0000", [dateFormatter stringFromDate:selectedEvent.date]];
+                    if([DateString isEqualToString:eventDateString])
+                    {
+                        [[UIApplication sharedApplication] cancelLocalNotification:not];
+                    }
+                }
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Confirmation"
                                                                        message:@"Alarme desactivée"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Fermer" style:UIAlertActionStyleDefault
+                UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Fermer" style:UIAlertActionStyleDefault
                                                              handler:^(UIAlertAction * action) {                   }];
         
-        [alert addAction:cancelAction];
+                [alert addAction:cancelAction];
         
-        [self presentViewController:alert animated:YES completion:nil];
-        
+                [self presentViewController:alert animated:YES completion:nil];
+            });
+        }];
     }
 }
 

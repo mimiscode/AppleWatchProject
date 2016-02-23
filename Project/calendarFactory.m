@@ -64,6 +64,31 @@
 }
 
 
++(void) updateEventWithEvent:(Event*)event andCompletionHandler:(void (^)())myCompletion{
+    
+    [calendarWebService updateEvent:event andCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if(!error){
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:0
+                                                                       error:NULL];
+            
+            
+            int code = [[jsonDict valueForKey:@"code"] intValue];
+            
+            if(code == 0){
+                NSLog(@"Event updated");
+            }
+            else{
+                NSLog(@"Error for updating event");
+            }
+        }
+        else{
+            NSLog(@"Update event failed.");
+        }
+        myCompletion();
+    }];
+}
 
 
 
@@ -85,7 +110,8 @@
                                        andDate:[dateFormatter dateFromString:[obj valueForKey:@"date"]]
                           andNumberMedications:[[obj valueForKey:@"numberMedications"] intValue]
                                  andMedication:[obj valueForKey:@"medication"]
-                                      andAlarm:[obj valueForKey:@"alarm"]];
+                                      andAlarm:[obj valueForKey:@"alarm"]
+                                    andUserId:[obj valueForKey:@"userId"]];
                 
                 [result addObject:event];
             }

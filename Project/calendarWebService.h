@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Event.h"
 
 @interface calendarWebService : NSObject
 
 +(void) getCalendarWithCompletionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))completionHandler;
 
++(void) updateEvent:(Event*)event andCompletionHandler:(void (^)(NSData* data, NSURLResponse* response, NSError* error))completionHandler;
+
 @end
+

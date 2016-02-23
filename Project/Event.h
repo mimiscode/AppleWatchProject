@@ -16,6 +16,7 @@
     int numberMedications_;
     int state_;
     NSString* alarm_;
+    NSString* userId_;
     
 }
 
@@ -25,9 +26,10 @@
 @property (nonatomic,assign)int numberMedications;;
 @property (nonatomic,assign)int state;
 @property (nonatomic,strong)NSString* alarm;
+@property (nonatomic,strong)NSString* userId;
 
 
--(Event*)initEventWithId:(NSString*)idd andState:(int)state andDate:(NSDate*)date andNumberMedications:(int) numberMedications andMedication:(NSString*) medication andAlarm:(NSString*) alarm;
+-(Event*)initEventWithId:(NSString*)idd andState:(int)state andDate:(NSDate*)date andNumberMedications:(int) numberMedications andMedication:(NSString*) medication andAlarm:(NSString*) alarm andUserId:(NSString*)userId;
 
 
 

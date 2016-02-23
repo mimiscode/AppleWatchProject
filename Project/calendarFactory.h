@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Config.h"
+#import "Event.h"
 
 @interface calendarFactory : NSObject
 
@@ -20,5 +20,6 @@
 +(NSArray*) getSixNextDaysDate;
 
 +(void) getCalendarWithCompletionHandler:(void (^)(NSArray* calendar))completionHandler;
++(void) updateEventWithEvent : (Event*)event andCompletionHandler:(void (^)())completionHandler;
 
 @end
