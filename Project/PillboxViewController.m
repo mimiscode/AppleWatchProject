@@ -127,14 +127,7 @@
 - (IBAction)onTouchFirstDay:(id)sender {
     DayDetailViewController* dayDetail1 = [DayDetailViewController new];
     dayDetail1.dayEvents = self.calendarArray[0];
-    
-//id  myCalendarArray = [calendarFactory getCalendarTest];
-    
-//    [[WCSession defaultSession] updateApplicationContext:myCalendarArray error:nil];
-   
-    [self.navigationController pushViewController:dayDetail1 animated:YES];
-
-    
+    [self.navigationController pushViewController:dayDetail1 animated:YES];    
 }
 
 - (IBAction)onTouchSecondDay:(id)sender {

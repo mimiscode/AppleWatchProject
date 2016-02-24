@@ -59,7 +59,7 @@
             [self displayConnexionErrorMessage];
         }
         self.mailField.enabled = YES;
-        self.passwordField  .enabled = YES;
+        self.passwordField.enabled = YES;
         [self.activityIndicator setHidden:true];
         [self stopLoading];
             

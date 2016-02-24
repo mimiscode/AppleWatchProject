@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.activityIndicator setHidden:true];
+    [self initializeFields];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,6 +96,33 @@
         
         [alert show];
     });
+}
+
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    if([self.userMail.text isEqualToString:@""] || [self.userFirstname.text isEqualToString:@""] || [self.userName.text isEqualToString:@""] || [self.userPassword.text isEqualToString:@""] || ! [self isMail:self.userMail.text]){
+        self.subscribeButton.enabled = false;
+        [self.subscribeButton setTitleColor:[UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:1.0] forState:UIControlStateNormal];
+    }
+    else{
+        self.subscribeButton.enabled = true;
+        [self.subscribeButton setTitleColor:[UIColor colorWithRed:30/255.0 green:200/255.0 blue:30/255.0 alpha:1.0] forState:UIControlStateNormal];
+    }
+}
+
+-(void)initializeFields{
+    [self.activityIndicator setHidden:true];
+    [self.subscribeButton setTitleColor:[UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:1.0] forState:UIControlStateNormal];
+    self.subscribeButton.enabled = false;
+    [self.userMail addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
+    [self.userName addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
+    [self.userPassword addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
+    [self.userFirstname addTarget:self action:@selector(textFieldDidChange:)forControlEvents:UIControlEventEditingChanged];
+}
+
+-(Boolean)isMail:(NSString*)mail{
+    NSString *mailRegex = @"^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mailRegex];
+    return [emailTest evaluateWithObject:mail];
 }
 
 -(void)threadStartAnimating{

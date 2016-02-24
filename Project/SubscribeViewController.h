@@ -16,11 +16,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *userPassword;
 @property (weak, nonatomic) IBOutlet UILabel *errorMessage;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *subscribeButton;
 
 -(void) goToMenuViewWithUser:(User*)user;
 
 -(void) displaySubscribeErrorMessage;
 
 -(void)threadStartAnimating;
+
+-(void)initializeFields;
+
+-(Boolean)isMail:(NSString*)mail;
 
 @end
